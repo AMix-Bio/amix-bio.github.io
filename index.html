@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="AMix-Bio — AI research for understanding and engineering biology." />
+    <meta name="theme-color" content="#ffffff" />
+    <title>AMix-Bio — Research works</title>
+    <link rel="stylesheet" href="./assets/site.css" />
+    <link rel="stylesheet" href="./assets/nav.css" />
+    <script src="./assets/site.js" defer></script>
+    <script src="./assets/home.js" defer></script>
+  </head>
+  <body class="home-page">
+    <header class="global-nav" data-amix-nav></header>
+    <script src="./assets/nav.js?v=20260928-1"></script>
+
+    <main>
+      <section class="home-hero" aria-labelledby="home-title">
+        <div class="hero-copy">
+          <p class="eyebrow" data-i18n="eyebrow">AI × Biology · Research collective</p>
+          <h1 id="home-title" data-i18n="heroTitle">AMix-Bio</h1>
+          <p class="hero-intro" data-i18n="heroIntro">Advancing AI for Science through reasoning, action, and discovery by integrating low-latency foundation models, feedback-driven self-improvement, and learnable long-horizon memory.</p>
+          <p class="hero-intro hero-closing" data-i18n="heroClosing">Intelligence generates experience. Experience deepens intelligence.</p>
+        </div>
+      </section>
+
+      <section id="works" class="works-section" aria-labelledby="works-title">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker" data-i18n="worksKicker">Selected research</p>
+            <h2 id="works-title" data-i18n="worksTitle">Works</h2>
+          </div>
+          <p class="section-note" data-i18n="worksNote">Models, benchmarks, and tools for protein intelligence.</p>
+        </div>
+        <div class="works-layout">
+          <div id="publication-grid" class="publication-grid" aria-live="polite"></div>
+          
+          <aside class="works-timeline" aria-labelledby="timeline-title">
+            <section class="work-filters" aria-labelledby="work-filters-title">
+              <p class="timeline-kicker" data-filter-i18n="kicker">Filters</p>
+              <div class="work-filter-heading">
+                <h3 id="work-filters-title" data-filter-i18n="title">Filter works</h3>
+                <button id="clear-work-filters" class="filter-clear" type="button" data-filter-i18n="clear" disabled>Clear filters</button>
+              </div>
+              <fieldset class="work-filter-group">
+                <legend data-filter-i18n="release">Release period</legend>
+                <div class="work-filter-dates">
+                  <div class="work-date-bound">
+                    <div class="work-date-controls" role="group" data-date-bound="start" aria-label="From">
+                      <button class="date-picker-trigger" type="button" data-bound="start" data-part="year" aria-haspopup="dialog" aria-controls="work-date-picker" aria-expanded="false" aria-describedby="work-date-hint work-date-error"></button>
+                      <button class="date-picker-trigger" type="button" data-bound="start" data-part="month" aria-haspopup="dialog" aria-controls="work-date-picker" aria-expanded="false" aria-describedby="work-date-hint work-date-error" disabled></button>
+                    </div>
+                  </div>
+                  <span class="work-date-separator" data-filter-i18n="rangeTo" aria-hidden="true">to</span>
+                  <div class="work-date-bound">
+                    <div class="work-date-controls" role="group" data-date-bound="end" aria-label="To">
+                      <button class="date-picker-trigger" type="button" data-bound="end" data-part="year" aria-haspopup="dialog" aria-controls="work-date-picker" aria-expanded="false" aria-describedby="work-date-hint work-date-error"></button>
+                      <button class="date-picker-trigger" type="button" data-bound="end" data-part="month" aria-haspopup="dialog" aria-controls="work-date-picker" aria-expanded="false" aria-describedby="work-date-hint work-date-error" disabled></button>
+                    </div>
+                  </div>
+                </div>
+                <p id="work-date-hint" class="filter-hint" data-filter-i18n="dateHint">Leave either end blank for no limit. Both endpoints are included.</p>
+                <p id="work-date-error" class="filter-error" role="alert" hidden></p>
+              </fieldset>
+              <fieldset class="work-filter-group">
+                <legend data-filter-i18n="category">Work category</legend>
+                <div id="work-category-filters" class="work-filter-tags"></div>
+                <p class="filter-hint" data-filter-i18n="categoryHint">Select one or more categories; leave all unselected to show every category.</p>
+              </fieldset>
+              <p id="work-filter-status" class="filter-status" role="status" aria-live="polite"></p>
+            </section>
+            <p class="timeline-kicker" data-i18n="timelineKicker">Chronology</p>
+            <h3 id="timeline-title" data-i18n="timelineTitle">Release timeline</h3>
+            <nav id="publication-timeline" class="timeline-list" aria-labelledby="timeline-title"></nav>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <div id="work-date-picker" class="work-date-picker" popover="auto" role="dialog" aria-labelledby="date-picker-title">
+      <div class="date-picker-heading">
+        <button type="button" class="date-picker-page" data-year-page="-1">‹</button>
+        <span id="date-picker-title"></span>
+        <button type="button" class="date-picker-page" data-year-page="1">›</button>
+      </div>
+      <div class="date-picker-options"></div>
+      <button type="button" class="date-picker-unset"></button>
+    </div>
+
+    <footer class="site-footer" data-amix-footer data-top-target="home-title"></footer>
+    <script src="./assets/footer.js?v=20260928-1"></script>
+  </body>
+</html>

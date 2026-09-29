@@ -1,0 +1,30 @@
+.placeholder-page .article-hero h1.placeholder-title { margin: 0; color: #1e1f24; font-size: clamp(58px, 9vw, 92px); font-weight: 650; letter-spacing: -0.065em; line-height: 1; }
+.placeholder-page .hero-summary { margin-top: 26px; }
+.placeholder-visual { width: min(860px, calc(100% - 40px)); min-height: 420px; margin: 18px auto 56px; border: 1px solid #d8d9e0; border-radius: 20px; background: linear-gradient(145deg, #f8faff, #e8f1ff); }
+.publication-figure { height: auto; min-height: 0; overflow: hidden; background: #fff; }
+.detail-main-figure { display: block; width: 100%; height: auto; border-radius: inherit; }
+.placeholder-visual-inner { position: relative; display: grid; min-height: 420px; place-items: center; overflow: hidden; border-radius: inherit; }
+.placeholder-visual-inner::before, .placeholder-visual-inner::after { position: absolute; width: 350px; height: 112px; border: 1px solid rgba(23, 105, 224, .35); border-radius: 50%; content: ""; }
+.placeholder-visual-inner::after { transform: rotate(62deg); }
+.placeholder-mark { position: relative; z-index: 1; display: grid; width: 118px; height: 118px; place-items: center; border-radius: 28px; color: #fff; background: linear-gradient(145deg, #377fef, #0b3e8b); box-shadow: 0 24px 60px rgba(23, 105, 224, .22); font-size: 34px; font-weight: 650; }
+.placeholder-page .background-lead { margin-top: 0; }
+.placeholder-page .content { padding-bottom: 28px; }
+.placeholder-page .seed-button[aria-disabled="true"] { color: #9296a1; background: #f5f6f8; cursor: not-allowed; }
+.placeholder-page .seed-button[aria-disabled="true"]:hover { border-color: #d8d9e0; color: #9296a1; }
+.detail-status { margin-top: 24px; padding: 20px 22px; border: 1px solid #d8d9e0; border-radius: 14px; background: #f7f8fd; }
+.detail-status strong { display: block; margin-bottom: 6px; color: #1e1f24; font-size: 15px; }
+.detail-status p { margin: 0; color: #62636c; font-size: 15px; line-height: 26px; }
+.detail-lang-zh { display: none; }
+html[lang="zh-CN"] .detail-lang-en { display: none; }
+html[lang="zh-CN"] .detail-lang-zh { display: revert; }
+
+@media (max-width: 640px) {
+  .placeholder-visual { width: calc(100% - 32px); min-height: 300px; }
+  .publication-figure { height: auto; min-height: 0; }
+  .placeholder-visual-inner { min-height: 300px; }
+  .placeholder-visual-inner::before, .placeholder-visual-inner::after { width: 240px; height: 78px; }
+  .placeholder-mark { width: 88px; height: 88px; border-radius: 22px; font-size: 26px; }
+}
+
+.action-row .seed-button { font-weight: 700; }
+

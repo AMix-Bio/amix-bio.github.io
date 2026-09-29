@@ -1,0 +1,394 @@
+<!doctype html>
+<html data-amix-language="zh" data-lang="zh" lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="AMix-1 是一款基于贝叶斯流网络构建的蛋白质基础模型，由预训练扩展定律、涌现能力分析、上下文学习和推理时扩展等系统化的训练方法支撑。" data-amix-en-content="AMix-1 is a protein foundation model built on Bayesian Flow Networks and empowered by a systematic training methodology spanning pretraining scaling laws, emergent capability analysis, in-context learning, and test-time scaling." data-amix-zh-content="AMix-1 是一款基于贝叶斯流网络构建的蛋白质基础模型，由预训练扩展定律、涌现能力分析、上下文学习和推理时扩展等系统化的训练方法支撑。"
+    />
+    <title>AMix-1 — AMix-Bio</title>
+    <link rel="stylesheet" href="../assets/publication.css" />
+    <link rel="stylesheet" href="../assets/detail.css" />
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="../assets/nav.css" />
+    <style id="amix1-locale-visibility">
+      html[data-amix-language="zh"] [data-amix-locale="en"],
+      html[data-amix-language="en"] [data-amix-locale="zh"] {
+        display: none !important;
+      }
+      html[data-amix-language="zh"] [data-amix-locale="zh"]:not(.article-nav),
+      html[data-amix-language="en"] [data-amix-locale="en"]:not(.article-nav) {
+        display: var(--amix-locale-display, block) !important;
+      }
+    </style>
+    <link rel="stylesheet" href="../assets/resource-icons.css" />
+  </head>
+  <body class="placeholder-page">
+    <header class="global-nav" data-amix-nav></header>
+    <script src="../assets/nav.js?v=20260928-1"></script>
+
+    <main class="page">
+      <nav class="article-nav amix1-nav-en" aria-label="文章章节" data-amix-en-aria-label="Article sections" data-amix-zh-aria-label="文章章节" data-amix-locale="en" lang="en">
+        <a class="article-nav-link is-active" href="#overview" data-nav-target="overview" aria-current="true">Overview</a>
+        <a class="article-nav-link" href="#scaling-law" data-nav-target="scaling-law">Scaling Law</a>
+        <a class="article-nav-link" href="#emergent-ability" data-nav-target="emergent-ability">Emergent Ability</a>
+        <a class="article-nav-link" href="#in-context-learning" data-nav-target="in-context-learning">In-Context Learning</a>
+        <a class="article-nav-link" href="#test-time-scaling" data-nav-target="test-time-scaling">Test-Time Scaling</a>
+        <a class="article-nav-link" href="#conclusion" data-nav-target="conclusion">Conclusion</a>
+        <!-- <a class="article-nav-link" href="#citation" data-nav-target="citation">Citation</a> -->
+      </nav>
+
+      <nav class="article-nav amix1-nav-zh" aria-label="文章章节" data-amix-locale="zh">
+        <a class="article-nav-link is-active" href="#overview-zh" data-nav-target="overview-zh" aria-current="true">概述</a>
+        <a class="article-nav-link" href="#scaling-law-zh" data-nav-target="scaling-law-zh">扩展定律</a>
+        <a class="article-nav-link" href="#emergent-ability-zh" data-nav-target="emergent-ability-zh">涌现能力</a>
+        <a class="article-nav-link" href="#in-context-learning-zh" data-nav-target="in-context-learning-zh">上下文学习</a>
+        <a class="article-nav-link" href="#test-time-scaling-zh" data-nav-target="test-time-scaling-zh">推理时扩展</a>
+        <a class="article-nav-link" href="#conclusion-zh" data-nav-target="conclusion-zh">总结</a>
+        <!-- <a class="article-nav-link" href="#citation-zh" data-nav-target="citation-zh">引用</a> -->
+      </nav>
+
+      <section class="article-hero" aria-labelledby="page-title">
+        <p class="publish-date">
+          <span class="detail-lang-en" data-amix-locale="en" lang="en" style="--amix-locale-display:inline">July 2025</span>
+          <span class="detail-lang-zh" data-amix-locale="zh" lang="zh-CN" style="--amix-locale-display:inline">2025 年 7 月</span>
+        </p>
+        <h1 id="page-title" class="placeholder-title">AMix-1</h1>
+        <p class="hero-summary detail-lang-en" data-amix-locale="en" lang="en" style="--amix-locale-display:block">
+          A protein foundation model built on Bayesian Flow Networks and empowered by a systematic training
+          methodology spanning pretraining scaling laws, emergent capability analysis, in-context learning, and
+          test-time scaling.
+        </p>
+        <p class="hero-summary detail-lang-zh" data-amix-locale="zh" lang="zh-CN" style="--amix-locale-display:block">一款基于贝叶斯流网络构建的蛋白质基础模型，由预训练扩展定律、涌现能力分析、上下文学习和推理时扩展等系统化的训练方法支撑。</p>
+
+        <div class="action-row amix1-actions-en" aria-label="项目资源" data-amix-en-aria-label="Project resources" data-amix-zh-aria-label="项目资源" data-amix-locale="en" lang="en" style="--amix-locale-display:flex">
+          <a
+            class="resource-button seed-button primary"
+            href="https://arxiv.org/abs/2507.08920"
+            target="_blank"
+            rel="noreferrer"
+            ><svg class="resource-icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="../assets/resource-icons.svg?v=20260928-1#report"></use></svg><span>Paper</span></a
+          >
+          <a
+            class="resource-button seed-button"
+            href="https://github.com/GenSI-THUAIR/AMix-1"
+            target="_blank"
+            rel="noreferrer"
+            ><svg class="resource-icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="../assets/resource-icons.svg?v=20260928-1#github"></use></svg><span>GitHub</span></a
+          >
+          <a
+            class="resource-button seed-button"
+            href="https://huggingface.co/GenSI/AMix-1-1.7B"
+            target="_blank"
+            rel="noreferrer"
+            ><svg class="resource-icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="../assets/resource-icons.svg?v=20260928-1#huggingface"></use></svg><span>Model</span></a
+          >
+        </div>
+
+        <div class="action-row amix1-actions-zh" aria-label="项目资源" data-amix-locale="zh" lang="zh-CN" style="--amix-locale-display:flex">
+          <a class="resource-button seed-button primary" href="https://arxiv.org/abs/2507.08920" target="_blank" rel="noreferrer"><svg class="resource-icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="../assets/resource-icons.svg?v=20260928-1#report"></use></svg><span>技术报告</span></a>
+          <a class="resource-button seed-button" href="https://github.com/GenSI-THUAIR/AMix-1" target="_blank" rel="noreferrer"><svg class="resource-icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="../assets/resource-icons.svg?v=20260928-1#github"></use></svg><span>代码仓库</span></a>
+          <a class="resource-button seed-button" href="https://huggingface.co/GenSI/AMix-1-1.7B" target="_blank" rel="noreferrer"><svg class="resource-icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="../assets/resource-icons.svg?v=20260928-1#huggingface"></use></svg><span>模型</span></a>
+        </div>
+      </section>
+
+      <figure class="amix1-main-figure" aria-label="AMix-1 概览" data-amix-en-aria-label="AMix-1 overview" data-amix-zh-aria-label="AMix-1 概览">
+        <img
+          src="../figures/AMix-1_main.png"
+          alt="AMix-1 总览：从预训练扩展到可在推理时扩展的蛋白质设计" data-amix-en-alt="AMix-1 overview from pretraining scaling to test-time scalable protein design" data-amix-zh-alt="AMix-1 总览：从预训练扩展到可在推理时扩展的蛋白质设计"
+          decoding="async"
+        />
+      </figure>
+
+      <div class="amix1-content-en" data-amix-locale="en" lang="en" style="--amix-locale-display:block">
+        <article class="content">
+          <section id="overview" class="content-section" aria-labelledby="overview-title">
+            <h2 id="overview-title">Overview</h2>
+            <p>
+              We introduce <strong>AMix-1</strong>, a powerful <strong>protein foundation model</strong> built on
+              Bayesian Flow Networks and empowered by a systematic training methodology, encompassing pretraining
+              scaling laws, emergent capability analysis, in-context learning strategy, and test-time scaling
+              algorithm. To guarantee robust scalability, we establish a predictive,
+              <strong>noise-aware scaling law</strong> and reveal the progressive
+              <strong>emergence of structural understanding</strong> from the loss perspective, culminating in a
+              strong <strong>1.7-billion-parameter model</strong>. Building on this foundation, we devise a multiple
+              sequence alignment (MSA)-based <strong>in-context learning</strong> strategy to unify protein design
+              into a general framework, where AMix-1 recognizes deep evolutionary signals among MSAs and consistently
+              generates structurally and functionally coherent proteins. This framework enables the successful design
+              of a dramatically improved AmeR variant with an up to 50× activity increase over its wild type. Pushing
+              the boundaries of protein engineering, we further empower AMix-1 with an
+              <strong>evolutionary test-time scaling</strong> algorithm for <em>in silico</em> directed evolution
+              that delivers substantial, scalable performance gains as verification budgets increase, laying the
+              groundwork for next-generation lab-in-the-loop protein design.
+            </p>
+          </section>
+
+          <section id="scaling-law" class="content-section" aria-labelledby="scaling-law-title">
+            <h2 id="scaling-law-title">Scaling Law</h2>
+            <p>
+              We are the first to characterize scaling laws and emergent abilities for an advanced generative model,
+              namely the Bayesian Flow Network, and pretrain a family of AMix-1 models scaling from 8 million
+              to 1.7 billion parameters. The following figures illustrate scaling laws of cross-entropy and training
+              FLOPs across various model sizes and noise levels α. We show the relationship between loss L and FLOPs
+              F, indicating that the AMix-1 models follow predictive scaling laws.
+            </p>
+            <figure class="architecture-visual amix1-figure" aria-label="AMix-1 scaling laws">
+              <img
+                class="architecture-chart"
+                src="./assets/amix1_scaling_law.png"
+                alt="AMix-1 cross-entropy scaling curves across model sizes and noise levels"
+                loading="lazy"
+                decoding="async"
+              />
+            </figure>
+          </section>
+
+          <section id="emergent-ability" class="content-section" aria-labelledby="emergent-ability-title">
+            <h2 id="emergent-ability-title">Emergent Ability</h2>
+            <p>
+              AMix-1 models exhibit emergent abilities across different noise levels α, with clear emergence observed
+              at α = 0.16 and 0.32. In the figure, darker colors represent models with more parameters. As model size
+              increases, cross-entropy decreases and downstream performance correspondingly improves.
+            </p>
+            <figure class="architecture-visual amix1-figure" aria-label="AMix-1 emergent ability">
+              <img
+                class="architecture-chart"
+                src="./assets/amix1_emergent_ability.png"
+                alt="AMix-1 emergent protein modeling ability across model sizes and noise levels"
+                loading="lazy"
+                decoding="async"
+              />
+            </figure>
+          </section>
+
+          <section id="in-context-learning" class="content-section" aria-labelledby="in-context-learning-title">
+            <h2 id="in-context-learning-title">In-Context Learning</h2>
+            <p>
+              We establish a unified protein design framework leveraging AMix-1's
+              <strong>in-context learning</strong> ability and evolutionary signals in multiple sequence alignments
+              for <strong>novel structure- and function-preserving generation</strong>. The following figure
+              illustrates the comparison of standard LLM in-context learning (top) with protein family conditioning
+              via MSA profiles in AMix-1 (bottom). In LLM ICL, few-shot exemplars are token-level demonstrations; in
+              AMix-1, the MSA profile serves as a <strong>dense, position-wise family prompt</strong>.
+            </p>
+            <figure class="architecture-visual amix1-figure" aria-label="AMix-1 in-context learning">
+              <img
+                class="architecture-chart"
+                src="./assets/amix1_icl.png"
+                alt="Comparison of language-model in-context learning and AMix-1 MSA-conditioned protein generation"
+                loading="lazy"
+                decoding="async"
+              />
+            </figure>
+            <p>
+              We design a high-activity AmeR variant with a 50× improvement over the wild type, showcasing AMix-1's
+              real-world impact on functional protein engineering. Specifically, we used AMix-1 to generate 40
+              candidate protein sequences, each containing no more than ten mutations. The functional activity of
+              these variants was measured using a fluorescent reporter assay, where higher DNA-binding affinity leads
+              to stronger repression of a fluorescent protein, quantified as "fold repression". A higher fold
+              repression value indicates better function. AMix-1's performance was compared to three baselines:
+              Wild-Type (WT), a single-mutant library, and EvoAI, a state-of-the-art directed evolution method. The
+              wet-lab comparison below shows the wet-lab verification process guided iteratively by AMix-1. 
+            </p>
+            <figure class="architecture-visual amix1-figure amix1-wet-lab-figure" aria-label="AMix-1 wet-lab validation">
+              <img
+                class="architecture-chart"
+                src="./assets/amix1_wet_lab.png"
+                alt="Wet-lab fold-repression comparison among wild type, a single-mutant library, EvoAI, and AMix-1"
+                loading="lazy"
+                decoding="async"
+              />
+            </figure>
+          </section>
+
+          <section id="test-time-scaling" class="content-section" aria-labelledby="test-time-scaling-title">
+            <h2 id="test-time-scaling-title">Test-Time Scaling</h2>
+            <p>
+              With the in-context learning ability of AMix-1, we push this capacity even further by introducing a
+              novel <strong>evolutionary test-time scaling</strong> algorithm that uses AMix-1 as the proposer and an
+              external plug-and-play verifier to generate candidate sequences from evolutionary constraints,
+              achieving directed protein evolution through arbitrary in silico verifiers or experimental screening.
+            </p>
+            <figure class="architecture-visual amix1-figure" aria-label="AMix-1 test-time scaling workflow">
+              <img
+                class="architecture-chart"
+                src="./assets/amix1_tts1.png"
+                alt="AMix-1 evolutionary test-time scaling workflow"
+                loading="lazy"
+                decoding="async"
+              />
+            </figure>
+            <figure class="architecture-visual amix1-figure" aria-label="AMix-1 test-time scaling results">
+              <img
+                class="architecture-chart"
+                src="./assets/amix1_tts2.png"
+                alt="AMix-1 performance across verification budgets and protein design tasks"
+                loading="lazy"
+                decoding="async"
+              />
+            </figure>
+          </section>
+
+          <section id="conclusion" class="content-section" aria-labelledby="conclusion-title">
+            <h2 id="conclusion-title">Conclusion</h2>
+            <p>AMix-1 brings together scaling laws, emergent capabilities, in-context learning, and test-time scaling in a 1.7B-parameter protein foundation model built on Bayesian Flow Networks. Guided by multiple sequence alignments, it generates novel proteins that preserve structural similarity, with wet-lab validation demonstrating improved AmeR activity. Its evolutionary test-time scaling algorithm further supports directed evolution across diverse computational objectives, laying the groundwork for future lab-in-the-loop protein design.</p>
+          </section>
+
+          <!-- <section id="citation" class="content-section" aria-labelledby="citation-title">
+            <h2 id="citation-title">Citation</h2>
+            <p>If you find this work useful, please cite our paper:</p>
+            <pre class="citation-block"><code>@article{lv2025amix1,
+  title={AMix-1: A Pathway to Test-Time Scalable Protein Foundation Model},
+  author={Changze Lv*, Jiang Zhou*, Siyu Long*, Lihao Wang, Jiangtao Feng, Dongyu Xue, Yu Pei, Hao Wang, Zherui Zhang, Yuchen Cai, Zhiqiang Gao, Ziyuan Ma, Jiakai Hu, Chaochen Gao, Jingjing Gong, Yuxuan Song, Shuyi Zhang, Xiaoqing Zheng, Deyi Xiong, Lei Bai, Wanli Ouyang, Ya-Qin Zhang, Wei-Ying Ma, Bowen Zhou, Hao Zhou},
+  journal={arXiv preprint arXiv:2507.08920},
+  year={2025}
+}</code></pre>
+          </section> -->
+        </article>
+      </div>
+
+      <div class="amix1-content-zh" data-amix-locale="zh" lang="zh-CN" style="--amix-locale-display:block">
+        <article class="content">
+          <section id="overview-zh" class="content-section" aria-labelledby="overview-title-zh">
+            <h2 id="overview-title-zh">概述</h2>
+            <p>我们推出了 <strong>AMix-1</strong>，一款强大的、基于贝叶斯流网络构建的<strong>蛋白质基础模型</strong>。AMix-1 由一套系统化的训练方法实现能力提升，其中涵盖了预训练扩展定律、涌现能力分析、上下文学习策略和推理时扩展算法。为保证模型具备稳健的可扩展性，我们建立了一套具有预测能力的<strong>噪声感知扩展定律</strong>，并从损失函数的角度揭示了<strong>模型结构理解能力的逐步涌现</strong>，最终训练出一个性能强劲的 <strong>17 亿参数模型</strong>。在此基础上，我们进一步提出一种基于多序列比对（MSA）的<strong>上下文学习</strong>策略，将蛋白质设计整合到一个通用框架中。在这一框架下，AMix-1 能够识别多序列比对中蕴涵的深层进化信号，稳定生成在结构和功能上具有一致性的蛋白质。借助该框架，我们成功设计出一种性能显著提升的 AmeR 蛋白质变体，其活性最高可达野生型的 50 倍。为进一步拓展蛋白质工程的边界，我们还为 AMix-1 引入了用于计算机模拟定向进化的<strong>进化式推理时扩展</strong>算法。随着验证预算增加，该算法能够带来显著且可持续扩展的性能提升，为下一代实验室闭环蛋白质设计奠定基础。</p>
+          </section>
+
+          <section id="scaling-law-zh" class="content-section" aria-labelledby="scaling-law-title-zh">
+            <h2 id="scaling-law-title-zh">扩展定律</h2>
+            <p>我们首次刻画了贝叶斯流网络这类先进生成模型的扩展定律与涌现能力，并预训练了一簇 AMix-1 模型，参数规模从 800 万到 17 亿不等。下图展示了不同参数规模和噪声水平 α 下交叉熵与训练浮点运算次数（FLOPs）之间的扩展定律。我们给出了交叉熵损失 L 与浮点运算次数 F 之间的关系，表明 AMix-1 模型遵循可预测的扩展定律。</p>
+            <figure class="architecture-visual amix1-figure" aria-label="AMix-1 扩展定律">
+              <img
+                class="architecture-chart"
+                src="./assets/amix1_scaling_law.png"
+                alt="AMix-1 在不同模型规模和噪声水平下的交叉熵扩展曲线"
+                loading="lazy"
+                decoding="async"
+              />
+            </figure>
+          </section>
+
+          <section id="emergent-ability-zh" class="content-section" aria-labelledby="emergent-ability-title-zh">
+            <h2 id="emergent-ability-title-zh">涌现能力</h2>
+            <p>AMix-1 模型在不同噪声水平 α 下展现出的涌现能力，其中在 α = 0.16 和 0.32 时，涌现现象尤为明显。图中颜色越深，表示模型的参数量越大。随着模型规模增大，交叉熵降低，下游任务性能也相应提升。</p>
+            <figure class="architecture-visual amix1-figure" aria-label="AMix-1 涌现能力">
+              <img
+                class="architecture-chart"
+                src="./assets/amix1_emergent_ability.png"
+                alt="AMix-1 在不同模型规模和噪声水平下涌现的蛋白质建模能力"
+                loading="lazy"
+                decoding="async"
+              />
+            </figure>
+          </section>
+
+          <section id="in-context-learning-zh" class="content-section" aria-labelledby="in-context-learning-title-zh">
+            <h2 id="in-context-learning-title-zh">上下文学习</h2>
+            <p>我们利用 AMix-1 的<strong>上下文学习</strong>能力以及多序列比对中的进化信号，建立了统一的蛋白质设计框架，用于<strong>生成保持结构和功能的新型蛋白质</strong>。下图对比了大语言模型（LLM）的上下文学习方式（上）与 AMix-1 通过 MSA profile 引入蛋白质家族条件信息的方式（下）。在大语言模型的上下文学习中，样本示例以词元级示范的形式提供；而在 AMix-1 中，MSA profile 则提供了<strong>高密度、逐位置的蛋白质家族提示</strong>。</p>
+            <figure class="architecture-visual amix1-figure" aria-label="AMix-1 上下文学习">
+              <img
+                class="architecture-chart"
+                src="./assets/amix1_icl.png"
+                alt="语言模型的上下文学习与 AMix-1 以 MSA 为条件的蛋白质生成方式对比"
+                loading="lazy"
+                decoding="async"
+              />
+            </figure>
+            <p>我们设计出了一种高活性 AmeR 蛋白质变体，其活性相比野生型提升了 50 倍，展示了 AMix-1 在功能蛋白质工程中的实际应用价值。具体而言，我们使用 AMix-1 生成了 40 条候选蛋白质序列，每条序列包含不超过 10 个突变。我们通过荧光报告基因实验测量这些变体的功能活性：更高的 DNA 结合亲和力会对荧光蛋白产生更强的抑制作用，并以“<strong>抑制倍数（fold repression）</strong>”进行量化。抑制倍数越高，表明蛋白质功能越强。我们将 AMix-1 的表现与三个基线进行比较：野生型（WT）、单突变体文库，以及最先进的定向进化方法 EvoAI。下方的湿实验对比展示了由 AMix-1 迭代引导的湿实验验证过程。</p>
+            <figure class="architecture-visual amix1-figure amix1-wet-lab-figure" aria-label="AMix-1 湿实验验证">
+              <img
+                class="architecture-chart"
+                src="./assets/amix1_wet_lab.png"
+                alt="野生型、单突变体文库、EvoAI 和 AMix-1 在湿实验中的抑制倍数对比"
+                loading="lazy"
+                decoding="async"
+              />
+            </figure>
+          </section>
+
+          <section id="test-time-scaling-zh" class="content-section" aria-labelledby="test-time-scaling-title-zh">
+            <h2 id="test-time-scaling-title-zh">推理时扩展</h2>
+            <p>在 AMix-1 上下文学习能力的基础上，我们引入了一种新的<strong>进化式推理时扩展</strong>算法，进一步拓展了模型能力。该算法使用 AMix-1 作为候选序列生成器，结合外部即插即用的验证器，在进化约束下生成候选序列，并通过任意计算机模拟验证器或实验筛选实现蛋白质定向进化。</p>
+            <figure class="architecture-visual amix1-figure" aria-label="AMix-1 推理时扩展流程">
+              <img
+                class="architecture-chart"
+                src="./assets/amix1_tts1.png"
+                alt="AMix-1 进化式推理时扩展流程"
+                loading="lazy"
+                decoding="async"
+              />
+            </figure>
+            <figure class="architecture-visual amix1-figure" aria-label="AMix-1 推理时扩展结果">
+              <img
+                class="architecture-chart"
+                src="./assets/amix1_tts2.png"
+                alt="AMix-1 在不同验证预算和蛋白质设计任务中的表现"
+                loading="lazy"
+                decoding="async"
+              />
+            </figure>
+          </section>
+
+          <section id="conclusion-zh" class="content-section" aria-labelledby="conclusion-title-zh">
+            <h2 id="conclusion-title-zh">总结</h2>
+            <p>AMix-1 将扩展定律、涌现能力、上下文学习与推理时扩展融入一个基于贝叶斯流网络的 1.7B 参数蛋白质基础模型。在多序列比对的引导下，模型能够生成保持结构相似性的新型蛋白质，并通过湿实验验证了 AmeR 活性的提升。其进化式推理时扩展算法进一步支持面向多种计算目标的定向进化，为未来的实验室闭环蛋白质设计奠定基础。</p>
+          </section>
+
+          <!-- <section id="citation-zh" class="content-section" aria-labelledby="citation-title-zh">
+            <h2 id="citation-title-zh">引用</h2>
+            <p>如果您认为本研究对您有所帮助，请引用我们的论文：</p>
+            <pre class="citation-block"><code>@article{lv2025amix1,
+  title={AMix-1: A Pathway to Test-Time Scalable Protein Foundation Model},
+  author={Changze Lv*, Jiang Zhou*, Siyu Long*, Lihao Wang, Jiangtao Feng, Dongyu Xue, Yu Pei, Hao Wang, Zherui Zhang, Yuchen Cai, Zhiqiang Gao, Ziyuan Ma, Jiakai Hu, Chaochen Gao, Jingjing Gong, Yuxuan Song, Shuyi Zhang, Xiaoqing Zheng, Deyi Xiong, Lei Bai, Wanli Ouyang, Ya-Qin Zhang, Wei-Ying Ma, Bowen Zhou, Hao Zhou},
+  journal={arXiv preprint arXiv:2507.08920},
+  year={2025}
+}</code></pre>
+          </section> -->
+        </article>
+      </div>
+    </main>
+
+    <footer class="site-footer" data-amix-footer data-contact-zh="联系方式"></footer>
+    <script src="../assets/footer.js?v=20260928-1"></script>
+
+    <script src="../assets/detail.js"></script>
+    <script src="./script.js?v=20260928-nav2"></script>
+    <script id="amix1-inline-locale">
+      (() => {
+        const root = document.documentElement;
+        const chineseIds = {"overview": "overview-zh", "overview-title": "overview-title-zh", "scaling-law": "scaling-law-zh", "scaling-law-title": "scaling-law-title-zh", "emergent-ability": "emergent-ability-zh", "emergent-ability-title": "emergent-ability-title-zh", "in-context-learning": "in-context-learning-zh", "in-context-learning-title": "in-context-learning-title-zh", "test-time-scaling": "test-time-scaling-zh", "test-time-scaling-title": "test-time-scaling-title-zh", "conclusion": "conclusion-zh", "conclusion-title": "conclusion-title-zh", "citation": "citation-zh", "citation-title": "citation-title-zh"};
+        const englishIds = Object.fromEntries(Object.entries(chineseIds).map(([en, zh]) => [zh, en]));
+        function setLanguage(language) {
+          const isChinese = language === "zh";
+          root.dataset.amixLanguage = language;
+          root.dataset.lang = language;
+          root.lang = isChinese ? "zh-CN" : "en";
+          for (const attribute of ["alt", "aria-label", "content"]) {
+            document.querySelectorAll(`[data-amix-${language}-${attribute}]`).forEach(node => {
+              node.setAttribute(attribute, node.getAttribute(`data-amix-${language}-${attribute}`));
+            });
+          }
+          document.querySelectorAll(".locale-button[data-lang]").forEach(button => {
+            button.classList.toggle("is-active", button.dataset.lang === language);
+            button.setAttribute("aria-pressed", String(button.dataset.lang === language));
+          });
+          const currentId = window.location.hash.slice(1);
+          const nextId = (isChinese ? chineseIds : englishIds)[currentId];
+          if (nextId) window.history.replaceState(window.history.state, "", "#" + nextId);
+          amix1PinnedNavTarget = null;
+          updateAMix1ActiveNav();
+        }
+        document.addEventListener("click", event => {
+          const button = event.target instanceof Element ? event.target.closest(".locale-button[data-lang]") : null;
+          if (!button || !["zh", "en"].includes(button.dataset.lang)) return;
+          event.preventDefault();
+          event.stopImmediatePropagation();
+          setLanguage(button.dataset.lang);
+        }, true);
+        setLanguage(root.dataset.amixLanguage || "zh");
+        document.addEventListener("DOMContentLoaded", () => setLanguage(root.dataset.amixLanguage || "zh"), { once: true });
+      })();
+    </script>
+  </body>
+</html>

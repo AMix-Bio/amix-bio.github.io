@@ -1,0 +1,75 @@
+.amix1-actions-zh,
+.amix1-content-zh {
+  display: none;
+}
+
+html[lang="zh-CN"] .amix1-nav-en,
+html[lang="zh-CN"] .amix1-actions-en,
+html[lang="zh-CN"] .amix1-content-en {
+  display: none;
+}
+
+html[lang="zh-CN"] .amix1-actions-zh {
+  display: flex;
+}
+
+html[lang="zh-CN"] .amix1-content-zh {
+  display: block;
+}
+
+.amix1-main-figure {
+  width: min(var(--article-width), calc(100% - 40px));
+  margin: 18px auto 56px;
+}
+
+.amix1-main-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--seed-border);
+  border-radius: 16px;
+  background: #fff;
+}
+
+.amix1-figure {
+  scroll-margin-top: 32px;
+}
+
+.amix1-wet-lab-figure {
+  width: 50%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.citation-block {
+  overflow-x: auto;
+  margin: 10px 0 0;
+  padding: 20px 22px;
+  border: 1px solid var(--seed-border);
+  border-radius: 14px;
+  color: var(--seed-body);
+  background: var(--seed-panel);
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  font-size: 13px;
+  line-height: 22px;
+  white-space: pre;
+}
+
+@media (max-width: 1180px) {
+  .amix1-nav-en {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .amix1-main-figure {
+    width: calc(100% - 32px);
+    margin-bottom: 40px;
+  }
+
+  .citation-block {
+    padding: 16px;
+    font-size: 12px;
+    line-height: 20px;
+  }
+}

@@ -1,0 +1,52 @@
+.global-nav {
+  position: relative;
+  z-index: 20;
+  display: flex;
+  width: min(1240px, calc(100% - 64px));
+  min-height: 82px;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(18, 39, 72, 0.13);
+  background: rgba(255, 255, 255, 0.9);
+  font-synthesis: weight;
+  font-family: Inter, "Avenir Next", "Helvetica Neue", "PingFang SC", "Microsoft YaHei", sans-serif;
+  backdrop-filter: blur(14px);
+}
+
+.global-nav-logo { display: inline-flex; align-items: center; }
+.global-nav-logo img { display: block; width: 119px; height: auto; }
+.global-nav-actions { display: flex; align-items: center; gap: 24px; }
+.global-nav-link { color: #5d697d; font-size: 13px; font-weight: 650; transition: color 160ms ease; }
+.global-nav-link:hover { color: #0a1220; }
+.global-nav .locale-switch { display: inline-flex; gap: 2px; padding: 3px; border: 1px solid rgba(18, 39, 72, 0.13); border-radius: 8px; background: #f5f7fb; }
+.global-nav .locale-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 36px;
+  height: 28px;
+  padding: 0 9px;
+  border: 0;
+  border-radius: 5px;
+  color: #5d697d;
+  background: transparent;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 800;
+  font-synthesis: weight;
+  line-height: 1;
+  letter-spacing: 0;
+}
+.global-nav .locale-button.is-active { color: #fff; background: #0a1220; }
+.nav-copy-zh { display: none; }
+html[lang="zh-CN"] .nav-copy-en { display: none; }
+html[lang="zh-CN"] .nav-copy-zh { display: inline; }
+
+@media (max-width: 680px) {
+  .global-nav { width: calc(100% - 36px); min-height: 72px; }
+  .global-nav-logo img { width: 101px; }
+  .global-nav-actions { gap: 14px; }
+}

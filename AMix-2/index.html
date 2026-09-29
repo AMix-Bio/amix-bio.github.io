@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="AMix-2 is a new-generation protein–text foundation model built on diffusion large language models for native protein understanding and design."
+    />
+    <title>AMix-2</title>
+    <link rel="icon" type="image/png" href="./assets/intro_combine2.png" />
+    <link rel="stylesheet" href="../assets/publication.css" />
+    <link rel="stylesheet" href="../assets/detail.css" />
+    <link rel="stylesheet" href="./assets/katex/katex-D96Be8fu.css" />
+    <link rel="stylesheet" href="../assets/nav.css" />
+    <link rel="stylesheet" href="../assets/resource-icons.css" />
+  </head>
+  <body>
+    <header class="global-nav" data-amix-nav></header>
+    <script src="../assets/nav.js?v=20260928-1"></script>
+
+    <main class="page">
+      <nav class="article-nav" aria-label="Article sections">
+        <a class="article-nav-link" href="#context" data-nav-target="context" data-i18n="navContext"></a>
+        <a class="article-nav-link" href="#overview" data-nav-target="overview" data-i18n="navOverview"></a>
+        <a class="article-nav-link" href="#paradigm" data-nav-target="paradigm" data-i18n="navParadigm"></a>
+        <a class="article-nav-link" href="#method" data-nav-target="method" data-i18n="navMethod"></a>
+        <a class="article-nav-link" href="#evaluation" data-nav-target="evaluation" data-i18n="navEvaluation"></a>
+        <a class="article-nav-link" href="#conclusion" data-nav-target="conclusion" data-i18n="navConclusion"></a>
+      </nav>
+
+      <section class="article-hero" aria-labelledby="page-title">
+        <p class="publish-date" data-i18n="date"></p>
+        <div class="hero-title-lockup">
+          <h1 id="page-title" class="brand-title" aria-label="AMix-2">
+            <img
+              class="brand-title-image"
+              src="./assets/amix-title-lockup.png"
+              alt=""
+              aria-hidden="true"
+              width="380"
+              height="112"
+              decoding="async"
+            />
+          </h1>
+        </div>
+        <p class="hero-summary" data-i18n="summary">
+        </p>
+
+        <div class="action-row" aria-label="Page actions">
+          <a
+            class="resource-button seed-button primary"
+            href="https://arxiv.org/abs/2605.30963"
+            target="_blank"
+            rel="noreferrer"><svg class="resource-icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="../assets/resource-icons.svg?v=20260928-1#report"></use></svg><span data-i18n="reportButton"></span></a
+          >
+          <!-- <a
+            class="seed-button primary"
+            href="./assets/AMix2-techreport.pdf"
+            target="_blank"
+            rel="noreferrer"
+            data-i18n="reportButton"
+            ></a
+          > -->
+          <button class="seed-button placeholder-action" type="button" aria-disabled="true" data-i18n="tryButton">
+          </button>
+        </div>
+      </section>
+
+      <section id="demo-video" class="video-block" aria-label="AMix-2 video">
+        <div class="video-frame video-frame--media">
+          <video class="hero-video" controls playsinline preload="metadata">
+            <source src="./assets/amix2-all-add_audio-4k30-high-512.mp4" type="video/mp4" />
+          </video>
+        </div>
+      </section>
+
+      <section id="context" class="background-lead" aria-label="AMix-2 background">
+        <p data-i18n-html="backgroundLead"></p>
+      </section>
+
+      <article class="content">
+        <section id="overview" class="content-section" aria-labelledby="overview-title">
+          <h2 id="overview-title" data-i18n="overviewTitle">概述</h2>
+          <p data-i18n-html="overviewOne"></p>
+          <p data-i18n="overviewTwo"></p>
+          <p data-i18n="overviewThree"></p>
+        </section>
+
+        <figure class="architecture-visual" aria-label="AMix-2 block-wise diffusion architecture">
+          <img
+            class="architecture-chart"
+            src="./assets/dllm.png?v=20260520-0051"
+            alt="AMix-2 block-wise diffusion language model architecture"
+            loading="lazy"
+            decoding="async"
+          />
+          <figcaption data-i18n="dllmCaption">
+            AMix-2采用分块扩散语言模型架构，统一建模蛋白质和文本
+          </figcaption>
+        </figure>
+
+        <section id="paradigm" class="content-section" aria-labelledby="paradigm-title">
+          <h2 id="paradigm-title" data-i18n="paradigmTitle"></h2>
+          <p data-i18n="paradigmIntro"></p>
+
+          <ul class="task-list">
+            <li>
+              <span class="task-lead" data-i18n="understandingLead"></span>
+              <span data-i18n-html="understandingText"></span>
+              <span class="formula-inline" data-i18n-html="understandingFormula"></span>
+            </li>
+            <li>
+              <span class="task-lead" data-i18n="designLead"></span>
+              <span data-i18n-html="designText"></span>
+              <span class="formula-inline" data-i18n-html="designFormula"></span>
+            </li>
+          </ul>
+        </section>
+
+        <section id="method" class="content-section" aria-labelledby="method-title">
+          <h2 id="method-title" data-i18n="methodTitle"></h2>
+          <p data-i18n-html="methodIntro"></p>
+
+          <p>
+            <span class="paragraph-lead" data-i18n="maskTitle"></span>
+            <span data-i18n-html="maskText"></span>
+          </p>
+          <div class="formula-block" data-i18n-html="maskFormula"></div>
+          <p data-i18n="maskMore"></p>
+
+          <p>
+            <span class="paragraph-lead" data-i18n="blockTitle"></span>
+            <span data-i18n="blockText"></span>
+          </p>
+          <div class="formula-block" data-i18n-html="blockFormula"></div>
+          <p data-i18n="blockMore"></p>
+
+          <figure class="method-visual" aria-label="AMix-2 block-wise diffusion animation">
+            <img
+              class="method-gif"
+              src="./assets/amix-block-zh-4k30-high-loop.gif"
+              alt="AMix-2 block-wise diffusion 方法动画"
+              data-locale-visual="zh"
+              loading="lazy"
+              decoding="async"
+            />
+            <img
+              class="method-gif"
+              src="./assets/amix-block-4k30-high-loop.gif"
+              alt="AMix-2 block-wise diffusion method animation"
+              data-locale-visual="en"
+              loading="lazy"
+              decoding="async"
+              hidden
+            />
+            <figcaption data-i18n="methodGifCaption">
+              AMix-2 的分块扩散过程：block 间因果生成，block 内并行去噪。
+            </figcaption>
+          </figure>
+        </section>
+
+        <section id="evaluation" class="content-section" aria-labelledby="results-title">
+          <h2 id="results-title" data-i18n="resultsTitle"></h2>
+          <p data-i18n-html="resultsText"></p>
+          <p data-i18n-html="resultsMore"></p>
+          <p data-i18n-html="resultsNumbers"></p>
+          <p data-i18n="resultsClosing"></p>
+        </section>
+
+        <figure id="perf-visual" class="perf-visual" aria-label="AMix-2 performance comparison">
+          <img
+            class="perf-chart"
+            src="./assets/perf.png?v=20260519-2237"
+            alt="AMix-2 performance comparison across protein understanding and design tasks"
+            loading="lazy"
+            decoding="async"
+          />
+          <figcaption data-i18n="perfCaption">
+            AMix-2在各种蛋白质理解设计任务上领先于主流大模型和蛋白质语言模型
+          </figcaption>
+        </figure>
+
+        <section id="conclusion" class="content-section" aria-labelledby="takeaway-title">
+          <h2 id="takeaway-title" data-i18n="takeawayTitle"></h2>
+          <p data-i18n="takeawayText"></p>
+        </section>
+      </article>
+    </main>
+
+    <footer class="site-footer" data-amix-footer></footer>
+    <script src="../assets/footer.js?v=20260928-1"></script>
+
+    <script src="./script.js?v=20260928-paper1"></script>
+    <script>
+      (() => {
+        const navLinks = Array.from(document.querySelectorAll("[data-nav-target]"));
+        const navSections = navLinks
+          .map((link) => document.getElementById(link.dataset.navTarget))
+          .filter(Boolean);
+
+        function setActiveNav(sectionId) {
+          navLinks.forEach((link) => {
+            const active = link.dataset.navTarget === sectionId;
+            link.classList.toggle("is-active", active);
+            if (active) {
+              link.setAttribute("aria-current", "true");
+            } else {
+              link.removeAttribute("aria-current");
+            }
+          });
+        }
+
+        function updateActiveNav() {
+          if (!navSections.length) return;
+
+          const page = document.documentElement;
+          const distanceFromBottom = page.scrollHeight - (window.scrollY + window.innerHeight);
+          const finalSection = navSections[navSections.length - 1];
+
+          if (
+            distanceFromBottom <= 180 ||
+            finalSection.getBoundingClientRect().top <= window.innerHeight * 0.7
+          ) {
+            setActiveNav(finalSection.id);
+            return;
+          }
+
+          const readingLine = window.innerHeight * 0.38;
+          let activeSection = navSections[0];
+
+          navSections.forEach((section) => {
+            if (section.getBoundingClientRect().top <= readingLine) {
+              activeSection = section;
+            }
+          });
+
+          setActiveNav(activeSection.id);
+        }
+
+        window.addEventListener("scroll", updateActiveNav, { passive: true });
+        window.addEventListener("resize", updateActiveNav);
+        window.addEventListener("hashchange", () => requestAnimationFrame(updateActiveNav));
+        window.addEventListener("load", updateActiveNav);
+        updateActiveNav();
+        requestAnimationFrame(updateActiveNav);
+      })();
+    </script>
+    <script type="module" src="./math-renderer.js"></script>
+  </body>
+</html>

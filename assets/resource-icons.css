@@ -1,0 +1,16 @@
+.seed-button.resource-button {
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.resource-button > span {
+  flex: 0 0 auto;
+  white-space: nowrap;
+}
+
+.resource-icon {
+  display: block;
+  width: 18px;
+  height: 18px;
+  flex: 0 0 18px;
+}

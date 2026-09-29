@@ -1,0 +1,99 @@
+.pfarena-nav.detail-lang-zh {
+  display: none;
+}
+
+html[lang="zh-CN"] .pfarena-nav.detail-lang-zh,
+html[lang="en"] .pfarena-nav.detail-lang-en {
+  display: grid;
+}
+
+.pfarena-video {
+  margin-bottom: 20px;
+}
+
+.pfarena-video .video-frame {
+  aspect-ratio: auto;
+  min-height: 0;
+  border-radius: 16px;
+  background: transparent;
+}
+
+.pfarena-video .video-frame::before {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  border: 1px solid var(--seed-border);
+  border-radius: inherit;
+  content: "";
+  pointer-events: none;
+}
+
+.pfarena-video .hero-video {
+  height: auto;
+  border: 0;
+  border-radius: 0;
+  outline: 0;
+  background: transparent;
+  object-fit: contain;
+}
+
+.pfarena-task-list {
+  display: grid;
+  gap: 10px;
+  margin: 2px 0 20px;
+  padding: 18px 22px;
+  border: 1px solid var(--seed-border);
+  border-radius: 16px;
+  background: var(--seed-panel);
+}
+
+.content-section .pfarena-task-list p {
+  position: relative;
+  margin: 0;
+  padding-left: 18px;
+}
+
+.content-section .pfarena-task-list p::before {
+  position: absolute;
+  top: 14px;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--seed-blue);
+  content: "";
+}
+
+.content-section .pfarena-task-list strong {
+  color: var(--seed-text);
+  font-weight: 650;
+}
+
+.pfarena-figure {
+  scroll-margin-top: 32px;
+}
+
+@media (max-width: 1180px) {
+  html[lang="zh-CN"] .pfarena-nav.detail-lang-zh,
+  html[lang="en"] .pfarena-nav.detail-lang-en {
+    display: none;
+  }
+}
+
+@media (max-width: 1023px) {
+  .pfarena-video {
+    margin-bottom: -4px;
+  }
+}
+
+@media (max-width: 640px) {
+  .pfarena-video .video-frame {
+    min-height: 0;
+  }
+
+  .pfarena-task-list {
+    padding: 16px 16px;
+  }
+}
+
+

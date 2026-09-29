@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="PFArena is a language-model benchmark for practical protein modification decisions."
+    />
+    <title>PFArena — AMix-Bio</title>
+    <link rel="stylesheet" href="../assets/publication.css" />
+    <link rel="stylesheet" href="../assets/detail.css" />
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="../assets/nav.css" />
+    <link rel="stylesheet" href="../assets/resource-icons.css" />
+  </head>
+  <body class="placeholder-page">
+    <header class="global-nav" data-amix-nav></header>
+    <script src="../assets/nav.js?v=20260928-1"></script>
+
+    <main class="page">
+      <nav class="article-nav pfarena-nav detail-lang-en" aria-label="Article sections" lang="en">
+        <a class="article-nav-link" href="#overview-en" data-nav-target="overview-en">Overview</a>
+        <a class="article-nav-link" href="#tasks-en" data-nav-target="tasks-en">Tasks</a>
+        <a class="article-nav-link" href="#dataset-en" data-nav-target="dataset-en">Dataset</a>
+        <a class="article-nav-link" href="#findings-en" data-nav-target="findings-en">Analysis</a>
+        <a class="article-nav-link" href="#astra-en" data-nav-target="astra-en">GPT-6 Astra Performance</a>
+        <a class="article-nav-link" href="#amix-21-en" data-nav-target="amix-21-en">AMix-2.1 Preview</a>
+        <a class="article-nav-link" href="#conclusion-en" data-nav-target="conclusion-en">Conclusion</a>
+      </nav>
+
+      <nav class="article-nav pfarena-nav detail-lang-zh" aria-label="文章章节">
+        <a class="article-nav-link" href="#overview" data-nav-target="overview">概述</a>
+        <a class="article-nav-link" href="#tasks" data-nav-target="tasks">蛋白改造任务</a>
+        <a class="article-nav-link" href="#dataset" data-nav-target="dataset">数据来源</a>
+        <a class="article-nav-link" href="#findings" data-nav-target="findings">实验分析</a>
+        <a class="article-nav-link" href="#astra" data-nav-target="astra">GPT-6 Astra 效果</a>
+        <a class="article-nav-link" href="#amix-21" data-nav-target="amix-21">书生 AMix-2.1 预览</a>
+        <a class="article-nav-link" href="#conclusion" data-nav-target="conclusion">总结</a>
+      </nav>
+
+      <section class="article-hero" aria-labelledby="page-title">
+        <p class="publish-date">
+          <span class="detail-lang-en">September 2026</span>
+          <span class="detail-lang-zh">2026 年 9 月</span>
+        </p>
+        <h1 id="page-title" class="placeholder-title">PFArena</h1>
+        <p class="hero-summary detail-lang-en">
+          An assay-grounded benchmark for evaluating language models across four controlled protein engineering tasks, designed around practical experimental decisions scientists face.
+        </p>
+        <p class="hero-summary detail-lang-zh">一个以蛋白实验测定数据为基础的语言模型评测基准，围绕四类受控的蛋白质工程任务，从实际科学决策需求出发评估模型能力。</p>
+        <div class="action-row" aria-label="Project resources">
+          <a
+            class="resource-button seed-button primary"
+            href="https://arxiv.org/abs/2609.28921"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <svg class="resource-icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="../assets/resource-icons.svg?v=20260928-1#report"></use></svg>
+            
+            <span class="detail-lang-en">Paper</span>
+            <span class="detail-lang-zh">技术报告</span>
+          </a>
+          <a
+            class="resource-button seed-button"
+            href="https://github.com/AMix-Bio/PFArena"
+            target="_blank"
+            rel="noreferrer"
+            >
+            <svg class="resource-icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="../assets/resource-icons.svg?v=20260928-1#github"></use></svg>
+            <span class="detail-lang-en">GitHub</span><span class="detail-lang-zh">代码仓库</span></a
+          >
+          <a
+            class="resource-button seed-button"
+            href="https://huggingface.co/datasets/AMix-Bio/PFArena"
+            target="_blank"
+            rel="noreferrer"
+            >
+            <svg class="resource-icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="../assets/resource-icons.svg?v=20260928-1#huggingface"></use></svg>
+            <span class="detail-lang-en">Dataset</span><span class="detail-lang-zh">数据集</span></a
+          >
+          <a
+            class="resource-button seed-button"
+            href="https://huggingface.co/spaces/AMix-Bio/PFArena-Leaderboard"
+            target="_blank"
+            rel="noreferrer"
+            >
+            <svg class="resource-icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="../assets/resource-icons.svg?v=20260928-1#leaderboard"></use></svg>
+            <span class="detail-lang-en">Leaderboard</span><span class="detail-lang-zh">排行榜</span></a
+          >
+        </div>
+      </section>
+
+      <figure class="video-block pfarena-video" aria-label="PFArena introduction video">
+        <div class="video-frame video-frame--media">
+          <video class="hero-video" controls playsinline preload="metadata">
+            <source src="./assets/pfarena_vid.mp4" type="video/mp4" />
+            <span class="detail-lang-en">Your browser does not support this video format.</span>
+            <span class="detail-lang-zh">您的浏览器暂不支持该视频格式。</span>
+          </video>
+        </div>
+        <!-- <figcaption>视频说明待补充</figcaption> -->
+      </figure>
+
+      <article class="content">
+        <div class="detail-lang-en" lang="en">
+          <section id="overview-en" class="content-section" aria-labelledby="overview-title-en">
+            <h2 id="overview-title-en">Overview</h2>
+            <p>
+              Protein engineering is driven by realistic experimental decisions: which single-mutants should be tested first when the budget is limited? Which candidates in a group of multi-mutants are most promising? And once an effective mutation or a deep mutational scanning (DMS) landscape is available, how should the next round of experiments be designed?
+            </p>
+            <p>
+              Rapid advances in general-purpose models such as GPT-6 Astra and Claude Opus 5, alongside protein language models and scientific agents, raise a central question: how well do these systems perform on real protein engineering decisions? Understanding which tasks they handle best, and how far they are from reliably supporting wet-lab scientists requires a systematic evaluation framework.
+            </p>
+            <p>
+              To address this need, the Shanghai Artificial Intelligence Laboratory, and Tsinghua University's Generative Symbolic Intelligence Laboratory (GenSI), the Institute for AI Industry Research (AIR), and the School of Pharmaceutical Sciences introduce <strong>PFArena</strong>, a benchmark for reproducible evaluation of frontier language models in protein engineering. PFArena goes beyond scoring predefined mutations: it asks whether models can identify variants worth testing under different levels of experimental information, bringing evaluation under a practical scientific setting.
+            </p>
+          </section>
+
+          <figure class="architecture-visual pfarena-figure" aria-label="PFArena benchmark overview">
+            <img
+              class="architecture-chart"
+              src="../figures/PFArena_main.png"
+              alt="Overview of PFArena tasks and its evaluation of protein engineering decisions"
+              loading="lazy"
+              decoding="async"
+            />
+            <figcaption>PFArena evaluates protein modification from the perspective of experimental scientists.</figcaption>
+          </figure>
+
+          <section id="tasks-en" class="content-section" aria-labelledby="tasks-title-en">
+            <h2 id="tasks-title-en">Four Protein Modification Tasks</h2>
+            <p>
+              PFArena evaluates four representative research scenarios drawn from protein engineering workflows:
+            </p>
+            <div class="pfarena-task-list">
+              <p>
+              <strong>T1: Single-mutant generation.</strong> Without mutation measurements for the target protein, propose the most promising candidates from the full single-mutant space for experimental testing.
+            </p>
+              <p>
+              <strong>T2: Measurement-free multi-mutant ranking.</strong> Rank multi-mutant variants using only the wild-type sequence, the experimental objective, and the candidate library.
+            </p>
+              <p>
+              <strong>T3: Anchor-informed multi-mutant ranking.</strong> Given the fitness value of an anchor mutation, identify promising multi-mutant successors in that background.
+            </p>
+              <p>
+              <strong>T4: Single-mutant-informed multi-mutant ranking.</strong> Prioritize multi-mutant candidates based on the experimental measurements of the single-mutants in each combination.
+            </p>
+            </div>
+            <p>
+              By providing varying levels of mutation fitness data, PFArena reflects four representative research scenarios characterized by differing degrees of prior experimental context. 
+            </p>
+          </section>
+
+          <section id="dataset-en" class="content-section" aria-labelledby="dataset-title-en">
+            <h2 id="dataset-title-en">Dataset Construction: 202 assays, over 600,000 candidates</h2>
+            <p>
+              PFArena is built from assay-level protein fitness landscapes originating from ProteinGym, MaveDB, MegaScale, FLAb, Human Domainome, CombinGym, and manually curated target DMS studies.
+            </p>
+            <p>
+              After standardizing mutation representations, aligning fitness score directions, and applying rigorous quality control, the benchmark comprises <strong>202 unique assays, 293 assay-task instances, and 607,269 target candidate rows</strong>. It covers objectives including stability, binding, and activity or organismal function.
+            </p>
+            <p>
+              The study evaluates 6 protein language models (PLMs), 6 general-purpose large language models (LLMs), and 5 agent configurations built upon Biomni or AMixKit. Evaluation metrics cover four aspects: global ranking, top-weighted ranking, peak discovery, and peak coverage. <strong>AMixKit</strong> is our lightweight toolkit for protein engineering: it enables LLMs to call specialized protein tools and integrate external information into multi-step, evidence-based analysis.
+            </p>
+          </section>
+
+          <figure class="architecture-visual pfarena-figure" aria-label="PFArena leaderboard">
+            <img
+              class="architecture-chart"
+              src="./assets/pfarena_leaderboard.png"
+              alt="PFArena leaderboard for variant generation and ranking tasks"
+              loading="lazy"
+              decoding="async"
+            />
+            <figcaption>Generation tasks are ranked by Recall, while ranking tasks are ranked by Spearman correlation. See the paper for results on the remaining metrics.</figcaption>
+          </figure>
+
+          <section id="findings-en" class="content-section" aria-labelledby="findings-title-en">
+            <h2 id="findings-title-en">Diverse Model Strengths</h2>
+            <p>
+              <strong>Model strengths depend on the task and the experimental information available.</strong> PLMs perform better overall on open-ended single-mutation generation (T1), particularly in covering high-fitness candidates. VenusREM achieves the highest Recall@40, but retrieves, on average, only 4.27% of the true top 40 variants within a budget of 40 candidates. Even leading models therefore struggle to cover the most promising mutations under a limited budget. LLMs and agents become more competitive in multiple-mutation ranking. AMixKit + Claude achieves the highest Spearman correlation in T2 (0.333); Biomni + Claude leads overall ranking in T3 (0.451). In T4, where single-mutation measurements provide the most extensive experimental context, agents are consistently among the leaders, with AMixKit + Claude achieving the highest Spearman correlation (0.646). These results point to complementary strengths: PLMs make effective use of sequence, structural, and evolutionary priors, while LLMs and agents are better able to interpret and combine experimental evidence specific to the target protein.
+            </p>
+            <p>
+              <strong>These distinct strengths come with shared limitations.</strong> High-quality candidates become harder to recover as the single-mutation search space grows. In multiple-mutation ranking, all model families generally perform worse on variants carrying more than two mutations. The advantage of LLMs and agents in T4 also relies largely on integrating single-mutation measurements: performance still drops substantially when combinations exhibit strong non-additivity and complex epistasis.
+            </p>
+          </section>
+
+          <section id="astra-en" class="content-section" aria-labelledby="astra-title-en">
+            <h2 id="astra-title-en">A Closer Look at GPT-6 Astra</h2>
+            <p>
+              Without protein structure and MSA inputs, GPT-6 Astra leads standalone LLMs on 9 of 14 task–metric comparisons and exceeds the best PLM on 6 metrics. Error analysis also shows that GPT-6 Astra and PLMs each correct some of the other's severe ranking errors, indicating complementary capabilities.
+            </p>
+            <p>
+              GPT-6 Astra also benefits from iterative experimental feedback. With the total candidate budget fixed at 40, replacing a single generation round with four rounds—and providing previously measured outcomes as feedback after each round—increases its normalized maximum score (NMS@40) from 0.7966 to 0.8367 and Recall@40 from 2.54% to 4.65%, ranking first on both metrics among the models evaluated. These findings demonstrate its potential to revise subsequent proposals in response to experimental evidence.
+            </p>
+
+            <figure class="architecture-visual pfarena-figure" aria-label="PFArena multi-turn evaluation">
+              <img
+                class="architecture-chart"
+                src="./assets/pfarena_multiturn.png"
+                alt="Cumulative performance comparison of round-wise single mutant generation with experimental feedback."
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption>Cumulative performance comparison of round-wise single mutant generation with experimental feedback.</figcaption>
+            </figure>
+            <p>
+              Nevertheless, confidence is not a guarantee of candidate quality. Although GPT-6 Astra's confidence tracks overall ranking performance reasonably well on some tasks, greater confidence does not consistently translate into better choices. Some lower-confidence predictions recover more of the genuinely top-ranked candidates.
+            </p>
+          </section>
+
+          <section id="amix-21-en" class="content-section" aria-labelledby="amix-21-title-en">
+            <h2 id="amix-21-title-en">Model Preview: AMix-2.1</h2>
+            <p>
+              Despite its strong general reasoning capabilities, GPT-6 Astra may unnecessarily refuse biology-related requests or require repeated prompt adjustments to produce successful outputs. Its API costs can also be substantial at scale. To address these limitations, <strong>the team builds on scaling experience from AMix-1 to extend AMix-2 to the hundred-billion-parameter scale, and applies multitask agentic reinforcement learning to further improve performance</strong>. AMixKit + AMix-2.1 is competitive across all four tasks, providing a favorable balance between performance and cost. Further technical details and models will be released in future work.
+            </p>
+
+            <figure class="architecture-visual pfarena-figure" aria-label="PFArena AMixKit boost">
+              <img
+                class="architecture-chart"
+                src="./assets/pfarena_kitboost.png"
+                alt="Average-rank improvements with AMixKit and multitask reinforcement learning"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption>Improvements in average rank with AMixKit and multitask reinforcement learning.</figcaption>
+            </figure>
+          </section>
+
+          <section id="conclusion-en" class="content-section" aria-labelledby="conclusion-title-en">
+            <h2 id="conclusion-title-en">Conclusion</h2>
+            <p>
+              PFArena shifts evaluation from static mutation scoring toward a practical question: <strong>what should we test next?</strong> It assesses whether models can identify useful candidates under limited budgets, varying levels of experimental information, and complex multi-mutant combinations. As current results are based on retrospective data, hit rates in new experiments still require prospective validation. By offering a reproducible evaluation grounded in laboratory decision-making, PFArena provides a basis for comparing model-assisted protein engineering approaches and developing future closed-loop wet-lab validation. A promising path forward may lie not in finding "one model for all", but in bringing complementary strengths together: PLMs' protein priors, LLM's contextual reasoning, specialized tools, with real experimental feedback.
+            </p>
+          </section>
+        </div>
+
+        <div class="detail-lang-zh">
+          <section id="overview" class="content-section" aria-labelledby="overview-title">
+            <h2 id="overview-title">概述</h2>
+            <p>
+              在蛋白质改造中，研究者面对的核心问题往往不是“这个突变得多少分”，而是更实际的决策：有限的实验预算应该优先测试哪些单点突变？面对一批多点突变体，哪个最值得先做？已有一个有效突变或一张深度突变扫描（DMS）图谱后，如何设计下一轮实验？
+            </p>
+            <p>
+              随着 GPT-6 Astra、Claude Opus 5等顶尖通用大模型，以及蛋白质语言模型和科学智能体能力快速提升，一个关键问题随之而来：这些前沿模型在真实蛋白质改造场景中究竟表现如何？它们分别擅长哪些决策任务，又距离真正辅助实验科学家还有多远？目前仍缺少一个统一、系统的评测框架来回答这些问题。
+            </p>
+            <p>
+              针对这一问题，上海人工智能实验室、清华大学生成式符号智能实验室（GenSI）、清华大学智能产业研究院（AIR）及清华大学药学院联合推出
+              <strong>PFArena</strong>：面向蛋白质改造的语言模型评测基准。与传统的“给定突变、预测分数”不同，PFArena 以实验科学家的视角组织任务，直接评估模型能否在不同实验信息条件下，找到更值得验证的突变体。其将评测视角延伸至蛋白质改造这一真实科研场景，为前沿模型提供了统一、可复现的比较坐标。
+            </p>
+          </section>
+
+          <figure class="architecture-visual pfarena-figure" aria-label="PFArena benchmark overview">
+            <img
+              class="architecture-chart"
+              src="../figures/PFArena_main.png"
+              alt="PFArena 从实验科学家的视角评估蛋白质改造能力"
+              loading="lazy"
+              decoding="async"
+            />
+            <figcaption>PFArena 从实验科学家的视角评估蛋白质改造能力</figcaption>
+          </figure>
+
+          <section id="tasks" class="content-section" aria-labelledby="tasks-title">
+            <h2 id="tasks-title">四类任务，紧贴蛋白质改造的实际研究</h2>
+            <p>PFArena围绕蛋白质工程中的四个典型场景设计任务：</p>
+            <div class="pfarena-task-list">
+              <p>
+                <strong>任务一（T1）：单点突变生成。</strong
+                >没有目标蛋白的突变测量数据时，从完整单突变空间中提出最值得优先实验的候选。
+              </p>
+              <p>
+                <strong>任务二（T2）：无测量信息的多点突变排序。</strong
+                >仅依据野生型序列、实验目标和候选库，对多点突变体进行排序。
+              </p>
+              <p>
+                <strong>任务三（T3）：锚点信息驱动的多点突变排序。</strong
+                >已测得一个重要突变（锚点）的效应值，判断在此基础上继续加入哪些突变更有希望。
+              </p>
+              <p>
+                <strong>任务四（T4）：单点突变信息驱动的多点突变排序。</strong
+                >已知候选组合中各个单点突变的实验结果，进一步预测哪些组合表现最佳。
+              </p>
+            </div>
+            <p>
+              这四项任务覆盖了从“零实验信息”到“拥有较充分目标特异性数据”的完整过程，对应实验室中常见的实验流程中的不同阶段。
+            </p>
+          </section>
+
+          <section id="dataset" class="content-section" aria-labelledby="dataset-title">
+            <h2 id="dataset-title">202个真实实验，超过60万条候选记录</h2>
+            <p>
+              PFArena 基于真实实验测定的蛋白质适应度景观构建，汇集 ProteinGym、MaveDB、MegaScale、FLAb、Human
+              Domainome、CombinGym 及人工整理的 DMS 研究。
+            </p>
+            <p>
+              经过统一突变表示、实验分数方向校准和严格质量控制，基准最终包含202个独立实验（assays），293个任务实例，共607,269条目标候选记录，覆盖稳定性、结合、活性及细胞或个体功能等研究目标。
+            </p>
+            <p>
+              研究团队系统评估了6种蛋白质语言模型（PLM）、6种通用大语言模型（LLM），以及基于 Biomni 和 AMixKit 构建的5种智能体组合，并从整体排序、头部排序、最佳候选发现和高适应度候选覆盖等维度进行评测。其中，<strong>AMixKit</strong> 是团队开发的针对蛋白改造的轻量工具集，帮助大语言模型调用蛋白质专业工具并整合外部信息，从而实现多步骤、有依据的推理分析。
+            </p>
+          </section>
+
+          <figure class="architecture-visual pfarena-figure" aria-label="PFArena leaderboard">
+            <img
+              class="architecture-chart"
+              src="./assets/pfarena_leaderboard.png"
+              alt="PFArena 生成与排序任务排行榜"
+              loading="lazy"
+              decoding="async"
+            />
+            <figcaption>
+              生成任务按 召回率（Recall） 排名，排序任务按 斯皮尔曼相关系数（Spearman）排名。其余指标的结果详见论文。
+            </figcaption>
+          </figure>
+
+          <section id="findings" class="content-section" aria-labelledby="findings-title">
+            <h2 id="findings-title">没有“全能模型”，实验信息决定模型优势</h2>
+            <p>
+              <strong>评测显示，不同模型家族各有所长，其相对优势随任务要求和可用实验信息变化。</strong>在开放式单点突变生成任务 T1 中，PLM 整体表现更强，尤其擅长覆盖高适应度候选。VenusREM 取得最高的召回率（Recall@40，即在候选预算为
+              40 的条件下计算），但平均也仅找回真实 Top-40 突变的4.27%，说明在有限候选预算下，即使是领先模型，也难以充分覆盖最值得测试的突变。在多点突变排序任务中，LLM 与智能体的优势逐渐显现。T2 中，AMixKit
+              + Claude 取得最高 Spearman 相关系数0.333；T3 中，Biomni + Claude 以0.451领先整体排序；在单点实验信息最充分的 T4 中，智能体全面进入领先区间，AMixKit +
+              Claude 取得最高 Spearman 相关系数0.646。这些结果揭示了一条清晰规律：PLM 更擅长利用蛋白质自身的序列、结构和进化先验；LLM 与智能体则更擅长读取、整合并推理目标特异性的实验信息。
+            </p>
+            <p>
+              <strong>不同的优势背后，是共同的瓶颈。</strong>随着单点搜索空间扩大，优质候选更难覆盖；在多点排序中，各模型家族对含两个以上突变的候选整体表现更差。此外，LLM 和智能体在 T4 中的优势，也主要来自对单点突变信息的有效整合：当多点组合存在明显非加性和复杂上位性效应时，其性能仍会大幅下降。
+            </p>
+          </section>
+
+          <section id="astra" class="content-section" aria-labelledby="astra-title">
+            <h2 id="astra-title">GPT-6 Astra走到哪一步了？</h2>
+            <p>
+              在14个评测指标中，GPT-6 Astra 有9项位列独立 LLM 第一，6项超过对应指标的最佳 PLM，而其输入并不包含蛋白质结构与多序列比对（MSA）信息。错误分析进一步表明，GPT-6
+              Astra 与 PLM 各自能够纠正对方的一部分严重排序错误，体现出互补性，而非简单的替代关系。
+            </p>
+            <p>
+              GPT-6 Astra
+              能够持续利用实验反馈改善候选设计。在总候选预算固定为40的条件下，将一次性生成改为四轮迭代，并逐轮提供已有实验测量作为反馈后，其归一化最高分（NMS@40）从0.7966提升至0.8367，Recall@40
+              从2.54%提升至4.65%，两项指标均位列该多轮实验的参评模型第一。这展示了其根据实验反馈调整后续提案、参与迭代优化的潜力。
+            </p>
+
+            <figure class="architecture-visual pfarena-figure" aria-label="PFArena multi-turn evaluation">
+              <img
+                class="architecture-chart"
+                src="./assets/pfarena_multiturn.png"
+                alt="基于逐轮实验反馈的单点突变生成累计性能对比"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption>基于逐轮实验反馈的单点突变生成累计性能对比</figcaption>
+            </figure>
+
+            <p>
+              GPT-6 Astra
+              的自报置信度尚不足以可靠判断优先候选的选择质量。尽管置信度在部分任务中能够较好地反映整体排序表现，模型更有把握的预测并不总能带来更好的候选选择结果，一些置信度较低的预测反而找回了更多真正排名靠前的候选。
+            </p>
+          </section>
+
+          <section id="amix-21" class="content-section" aria-labelledby="amix-21-title">
+            <h2 id="amix-21-title">书生 AMix-2.1 模型预览</h2>
+            <p>
+              尽管 GPT-6 Astra
+              展现出强大的通用推理能力，但在生物学相关任务中仍可能出现过度拒答或误拒答，或需要用户反复调整提示才能获得有效输出；此外，在大规模应用场景下，其 API
+              成本也可能较为高昂。针对这些局限性，<strong>团队基于在书生 AMix-1 上积累的 scaling
+              经验，将书生 AMix-2 扩展至百B参数规模，并进一步引入多任务智能体强化学习，以持续提升模型表现</strong>。评测结果显示，AMixKit +
+              AMix-2.1 在四项任务上均展现出较强竞争力，体现了兼顾性能与成本的潜力。更多技术细节与模型权重将在后续工作中发布。
+            </p>
+
+            <figure class="architecture-visual pfarena-figure" aria-label="PFArena AMixKit boost">
+              <img
+                class="architecture-chart"
+                src="./assets/pfarena_kitboost.png"
+                alt="AMixKit 与多任务强化学习带来的平均排名提升"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption>AMixKit 与多任务强化学习带来的平均排名提升</figcaption>
+            </figure>
+          </section>
+
+          <section id="conclusion" class="content-section" aria-labelledby="conclusion-title">
+            <h2 id="conclusion-title">总结</h2>
+            <p>
+              总结来看，PFArena将评测重点从静态的突变打分，推进到<strong>“下一步应该测试什么”</strong>的实验决策。它不仅比较模型分数，更关注模型能否在有限预算、不同信息条件和复杂突变组合下，为真实蛋白质改造提供有价值的候选。当前结果基于回顾性数据，其在新实验中的实际命中率仍需进一步验证。但通过统一、可复现且贴近实际研究流程的评测，PFArena为模型辅助蛋白质改造建立了新的比较坐标，也为未来闭环湿实验验证奠定了基础。未来更有潜力的方向可能不是寻找单一“万能模型”，而是把 PLM 的蛋白质先验、LLM 的上下文推理、专业工具与真实实验反馈更紧密地结合起来。
+            </p>
+          </section>
+        </div>
+      </article>
+    </main>
+
+    <footer class="site-footer" data-amix-footer></footer>
+    <script src="../assets/footer.js?v=20260928-1"></script>
+
+    <script src="../assets/detail.js"></script>
+    <script src="./script.js"></script>
+  </body>
+</html>
