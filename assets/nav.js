@@ -4,7 +4,7 @@
   const siteRoot = new URL("../", script.src);
   header.innerHTML = `
     <a class="global-nav-logo" href="${siteRoot.href}" aria-label="AMix-Bio home">
-      <img src="${new URL("AMix-2/assets/sail-logo.svg", siteRoot).href}" alt="Shanghai Artificial Intelligence Laboratory" />
+      <img src="${new URL("figures/sail-logo.svg", siteRoot).href}" alt="Shanghai Artificial Intelligence Laboratory" />
     </a>
     <div class="global-nav-actions">
       <a class="global-nav-link" href="${siteRoot.href}"><span class="nav-copy-en">Home</span><span class="nav-copy-zh">首页</span></a>

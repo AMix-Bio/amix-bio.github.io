@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2048 1229" role="img" aria-labelledby="title desc">
+  <title id="title">Shanghai Artificial Intelligence Laboratory</title>
+  <desc id="desc">Logo placeholder based on the provided Shanghai Artificial Intelligence Laboratory image.</desc>
+  <rect width="2048" height="1229" fill="#fff"/>
+  <g fill="#003f73" stroke="#202020" stroke-width="5">
+    <rect x="45" y="46" width="1358" height="14"/>
+    <rect x="1450" y="46" width="550" height="14"/>
+    <rect x="45" y="106" width="1290" height="14"/>
+    <rect x="1390" y="106" width="610" height="14"/>
+    <rect x="45" y="167" width="1148" height="14"/>
+    <rect x="1284" y="167" width="716" height="14"/>
+    <rect x="45" y="228" width="980" height="14"/>
+    <rect x="1110" y="228" width="890" height="14"/>
+    <rect x="45" y="289" width="828" height="14"/>
+    <rect x="1018" y="289" width="982" height="14"/>
+    <rect x="45" y="350" width="724" height="14"/>
+    <rect x="990" y="350" width="1010" height="14"/>
+    <rect x="45" y="411" width="620" height="14"/>
+    <rect x="770" y="411" width="128" height="14"/>
+    <rect x="1028" y="411" width="972" height="14"/>
+    <rect x="45" y="472" width="528" height="14"/>
+    <rect x="718" y="472" width="164" height="14"/>
+    <rect x="1186" y="472" width="814" height="14"/>
+    <rect x="45" y="533" width="475" height="14"/>
+    <rect x="732" y="533" width="194" height="14"/>
+    <rect x="1330" y="533" width="670" height="14"/>
+    <rect x="45" y="594" width="384" height="14"/>
+    <rect x="678" y="594" width="344" height="14"/>
+    <rect x="1510" y="594" width="490" height="14"/>
+    <rect x="45" y="655" width="240" height="14"/>
+    <rect x="618" y="655" width="482" height="14"/>
+    <rect x="1766" y="655" width="234" height="14"/>
+  </g>
+  <text x="45" y="996" fill="#171717" font-family="serif" font-size="150" font-weight="700" letter-spacing="64">上海人工智能实验室</text>
+  <text x="45" y="1148" fill="#171717" font-family="Georgia, 'Times New Roman', serif" font-size="96" font-weight="700">Shanghai Artificial Intelligence Laboratory</text>
+</svg>

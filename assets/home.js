@@ -100,7 +100,7 @@ const filterCopy = {
     start: "From", end: "To", rangeTo: "to", category: "Work category",
     year: "Year", month: "Month", anyYear: "Any year", anyMonth: "All months", chooseYear: "Choose a year first",
     previousYears: "Previous years", nextYears: "Next years",
-    dateHint: "Both endpoints included; select a year alone to include the whole year.",
+    dateHint: "Both endpoints included; year alone includes the whole year.",
     categoryHint: "Select one or more categories; all unselected shows every category.",
     invalidRange: "The start month must be on or before the end month.",
     empty: "No works match these filters. Adjust the dates or categories, or clear the filters.",
