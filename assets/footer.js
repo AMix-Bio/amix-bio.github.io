@@ -1,6 +1,8 @@
 (() => {
   const footer = document.currentScript.previousElementSibling;
-  const topTarget = footer.dataset.topTarget || "page-title";
+  const header = document.querySelector("[data-amix-nav]");
+  const topTarget = header.id || "site-nav";
+  header.id = topTarget;
   footer.innerHTML = `
     <div class="site-footer-inner">
       <div class="footer-copy">
