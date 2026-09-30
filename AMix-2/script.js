@@ -209,7 +209,7 @@ function setLanguage(lang) {
   });
 
   document.documentElement.lang = lang === "zh" ? "zh-CN" : "en";
-  localStorage.setItem("amix-2-language", lang);
+  localStorage.setItem("amix-bio-language", lang);
   renderMath();
 }
 
@@ -261,6 +261,6 @@ window.addEventListener("resize", updateActiveNav);
 window.addEventListener("hashchange", () => requestAnimationFrame(updateActiveNav));
 window.addEventListener("load", updateActiveNav);
 
-setLanguage(localStorage.getItem("amix-2-language") || "zh");
+setLanguage(localStorage.getItem("amix-bio-language") || "en");
 updateActiveNav();
 requestAnimationFrame(updateActiveNav);

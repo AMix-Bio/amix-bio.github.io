@@ -26,7 +26,7 @@
   </head>
   <body class="placeholder-page">
     <header class="global-nav" data-amix-nav></header>
-    <script src="../assets/nav.js?v=20260928-1"></script>
+    <script src="../assets/nav.js"></script>
 
     <main class="page">
       <nav class="article-nav amix1-nav-en" aria-label="文章章节" data-amix-en-aria-label="Article sections" data-amix-zh-aria-label="文章章节" data-amix-locale="en" lang="en">
@@ -68,28 +68,28 @@
             href="https://arxiv.org/abs/2507.08920"
             target="_blank"
             rel="noreferrer"
-            ><svg class="resource-icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="../assets/resource-icons.svg?v=20260928-1#report"></use></svg><span>Paper</span></a
+            ><svg class="resource-icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="../assets/resource-icons.svg#report"></use></svg><span>Paper</span></a
           >
           <a
             class="resource-button seed-button"
             href="https://github.com/GenSI-THUAIR/AMix-1"
             target="_blank"
             rel="noreferrer"
-            ><svg class="resource-icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="../assets/resource-icons.svg?v=20260928-1#github"></use></svg><span>GitHub</span></a
+            ><svg class="resource-icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="../assets/resource-icons.svg#github"></use></svg><span>GitHub</span></a
           >
           <a
             class="resource-button seed-button"
             href="https://huggingface.co/GenSI/AMix-1-1.7B"
             target="_blank"
             rel="noreferrer"
-            ><svg class="resource-icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="../assets/resource-icons.svg?v=20260928-1#huggingface"></use></svg><span>Model</span></a
+            ><svg class="resource-icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="../assets/resource-icons.svg#huggingface"></use></svg><span>Model</span></a
           >
         </div>
 
         <div class="action-row amix1-actions-zh" aria-label="项目资源" data-amix-locale="zh" lang="zh-CN" style="--amix-locale-display:flex">
-          <a class="resource-button seed-button primary" href="https://arxiv.org/abs/2507.08920" target="_blank" rel="noreferrer"><svg class="resource-icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="../assets/resource-icons.svg?v=20260928-1#report"></use></svg><span>技术报告</span></a>
-          <a class="resource-button seed-button" href="https://github.com/GenSI-THUAIR/AMix-1" target="_blank" rel="noreferrer"><svg class="resource-icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="../assets/resource-icons.svg?v=20260928-1#github"></use></svg><span>代码仓库</span></a>
-          <a class="resource-button seed-button" href="https://huggingface.co/GenSI/AMix-1-1.7B" target="_blank" rel="noreferrer"><svg class="resource-icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="../assets/resource-icons.svg?v=20260928-1#huggingface"></use></svg><span>模型</span></a>
+          <a class="resource-button seed-button primary" href="https://arxiv.org/abs/2507.08920" target="_blank" rel="noreferrer"><svg class="resource-icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="../assets/resource-icons.svg#report"></use></svg><span>技术报告</span></a>
+          <a class="resource-button seed-button" href="https://github.com/GenSI-THUAIR/AMix-1" target="_blank" rel="noreferrer"><svg class="resource-icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="../assets/resource-icons.svg#github"></use></svg><span>代码仓库</span></a>
+          <a class="resource-button seed-button" href="https://huggingface.co/GenSI/AMix-1-1.7B" target="_blank" rel="noreferrer"><svg class="resource-icon" width="18" height="18" aria-hidden="true" focusable="false"><use href="../assets/resource-icons.svg#huggingface"></use></svg><span>模型</span></a>
         </div>
       </section>
 
@@ -350,10 +350,10 @@
     </main>
 
     <footer class="site-footer" data-amix-footer data-contact-zh="联系方式"></footer>
-    <script src="../assets/footer.js?v=20260928-1"></script>
+    <script src="../assets/footer.js"></script>
 
     <script src="../assets/detail.js"></script>
-    <script src="./script.js?v=20260928-nav2"></script>
+    <script src="./script.js"></script>
     <script id="amix1-inline-locale">
       (() => {
         const root = document.documentElement;
@@ -363,7 +363,7 @@
           const isChinese = language === "zh";
           root.dataset.amixLanguage = language;
           root.dataset.lang = language;
-          root.lang = isChinese ? "zh-CN" : "en";
+          setDetailLanguage(language);
           for (const attribute of ["alt", "aria-label", "content"]) {
             document.querySelectorAll(`[data-amix-${language}-${attribute}]`).forEach(node => {
               node.setAttribute(attribute, node.getAttribute(`data-amix-${language}-${attribute}`));
@@ -386,8 +386,8 @@
           event.stopImmediatePropagation();
           setLanguage(button.dataset.lang);
         }, true);
-        setLanguage(root.dataset.amixLanguage || "zh");
-        document.addEventListener("DOMContentLoaded", () => setLanguage(root.dataset.amixLanguage || "zh"), { once: true });
+        setLanguage(localStorage.getItem("amix-bio-language") || "en");
+        document.addEventListener("DOMContentLoaded", () => setLanguage(localStorage.getItem("amix-bio-language") || "en"), { once: true });
       })();
     </script>
   </body>
