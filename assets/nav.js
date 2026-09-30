@@ -3,7 +3,7 @@
   const header = script.previousElementSibling;
   const siteRoot = new URL("../", script.src);
   header.innerHTML = `
-    <a class="global-nav-logo" href="${siteRoot.href}" aria-label="AMix-Bio home">
+    <a class="global-nav-logo" href="${siteRoot.href}" aria-label="AMix home">
       <img src="${new URL("figures/sail-logo.svg", siteRoot).href}" alt="Shanghai Artificial Intelligence Laboratory" />
     </a>
     <div class="global-nav-actions">
@@ -16,7 +16,7 @@
 
   function syncLanguage() {
     const isChinese = document.documentElement.lang === "zh-CN";
-    header.querySelector(".global-nav-logo").setAttribute("aria-label", isChinese ? "AMix-Bio 首页" : "AMix-Bio home");
+    header.querySelector(".global-nav-logo").setAttribute("aria-label", isChinese ? "AMix 首页" : "AMix home");
     header.querySelector("img").alt = isChinese ? "上海人工智能实验室" : "Shanghai Artificial Intelligence Laboratory";
     header.querySelector(".locale-switch").setAttribute("aria-label", isChinese ? "语言" : "Language");
     header.querySelectorAll(".locale-button").forEach(button => {

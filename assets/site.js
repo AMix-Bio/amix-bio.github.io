@@ -2,9 +2,9 @@ const translations = {
   en: {
     navHome: "Home",
     eyebrow: "Life Sciences · AI-Powered Discovery",
-    heroTitle: "AMix-Bio",
+    heroTitle: "AMix",
     // heroIntro: "Toward the next frontier of AI for Science: intelligence that acts, learns, and remembers. Connecting fast models, real-world feedback, and learnable memory in a continuous cycle of scientific exploration.",
-    heroIntro: "Toward the next frontier of AI for Science: intelligence that acts, learns, and remembers. Understand proteins as they are. Design proteins as they could be. AMix-Bio connects generative intelligence with wet-lab validation, turning AI imagination into experimental discoveries.",
+    heroIntro: "Toward the next frontier of AI for Science: intelligence that acts, learns, and remembers. Understand proteins as they are. Design proteins as they could be. AMix connects generative intelligence with wet-lab validation, turning AI imagination into experimental discoveries.",
     heroClosing: "Intelligence generates experience. Experience deepens intelligence.",
     worksKicker: "Research highlights",
     worksTitle: "Works",
@@ -18,9 +18,9 @@ const translations = {
   zh: {
     navHome: "首页",
     eyebrow: "生命科学 · 智能探索",
-    heroTitle: "AMix-Bio",
+    heroTitle: "AMix",
     // heroIntro: "迈向 AI for Science 的新前沿：能行动、会学习、有记忆的智能。融合高效模型、真实环境反馈与可学习的记忆，构建持续探索科学的智能闭环。",
-    heroIntro: "迈向 AI for Science 的新前沿：能行动、会学习、有记忆的智能。解码蛋白质的生命语言，设计蛋白质的全新可能。AMix-Bio 将生成式智能与湿实验验证相结合，让 AI 的创新构想跨越计算与现实，在实验中开启新的科学发现。",
+    heroIntro: "迈向 AI for Science 的新前沿：能行动、会学习、有记忆的智能。解码蛋白质的生命语言，设计蛋白质的全新可能。AMix 将生成式智能与湿实验验证相结合，让 AI 的创新构想跨越计算与现实，在实验中开启新的科学发现。",
     heroClosing: "智能创造经验，经验深化智能。",
     worksKicker: "精选研究",
     worksTitle: "研究工作",

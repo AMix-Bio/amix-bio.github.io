@@ -75,7 +75,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .hero-copy { position: relative; z-index: 1; max-width: 720px; }
 .eyebrow, .section-kicker { margin: 0 0 21px; color: var(--blue); font-size: 12px; font-weight: 800; font-synthesis: weight; letter-spacing: 0.15em; text-transform: uppercase; }
 .eyebrow { height: 16px; }
-.home-hero h1 { max-width: 980px; margin: 0; color: #090f1a; font-size: clamp(72px, 9vw, 152px); font-weight: 590; letter-spacing: -0.065em; line-height: 0.92; text-wrap: balance; }
+.home-hero h1 { max-width: 980px; margin: 0; color: #090f1a; font-size: clamp(72px, 9vw, 160px); font-weight: 590; letter-spacing: -0.010em; line-height: 0.92; text-wrap: balance; }
 .hero-intro { max-width: 620px; margin: 29px 0 0; color: #6b778a; font-size: 17px; line-height: 1.7; }
 html[lang="zh-CN"] .hero-intro[data-i18n="heroIntro"] { text-align: justify; text-align-last: left; }
 .hero-closing { margin-top: 24px; border-left: 2px solid var(--blue); padding-left: 12px; color: var(--blue); font-weight: 550; font-style: italic; font-synthesis: style; }
