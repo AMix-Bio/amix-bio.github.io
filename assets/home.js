@@ -10,7 +10,7 @@ const publications = [
       en: "An assay-grounded benchmark for evaluating language models across four controlled protein engineering tasks, designed around practical experimental decisions scientists face.",
       zh: "一个以蛋白实验测定数据为基础的语言模型评测基准，围绕四类受控的蛋白质工程任务，从实际科学决策需求出发评估模型能力。"
     },
-    meta: { en: "View publication", zh: "查看研究详情" },
+    meta: { en: "View Details", zh: "查看研究详情" },
     release: { en: "Sep 2026", zh: "2026 年 9 月" },
     href: "./PFArena/",
     tagClass: "tag--benchmark",
@@ -28,7 +28,7 @@ const publications = [
       en: "A new-generation protein–text foundation model developed by the Shanghai Artificial Intelligence Laboratory, built on diffusion large language models for native protein understanding and design.",
       zh: "上海人工智能实验室推出的新一代蛋白质大模型，以扩散大语言模型为核心架构，统一建模自然语言、蛋白质序列、蛋白语义理解与功能序列设计。"
     },
-    meta: { en: "View publication", zh: "查看研究详情" },
+    meta: { en: "View Details", zh: "查看研究详情" },
     release: { en: "May 2026", zh: "2026 年 5 月" },
     href: "./AMix-2/",
     tagClass: "tag--model",
@@ -46,7 +46,7 @@ const publications = [
       en: "A protein foundation model built on Bayesian Flow Networks and empowered by a systematic training methodology spanning pretraining scaling laws, emergent capability analysis, in-context learning, and test-time scaling.",
       zh: "一款基于贝叶斯流网络构建的蛋白质基础模型，由预训练扩展定律、涌现能力分析、上下文学习和推理时扩展等系统化的训练方法支撑。"
     },
-    meta: { en: "View publication", zh: "查看研究详情" },
+    meta: { en: "View Details", zh: "查看研究详情" },
     release: { en: "Jul 2025", zh: "2025 年 7 月" },
     href: "./AMix-1/",
     tagClass: "tag--model",
