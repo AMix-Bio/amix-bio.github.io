@@ -96,130 +96,26 @@ let timelineFrame = 0;
 
 const filterCopy = {
   en: {
-    kicker: "Filters", title: "Filter Works", clear: "Clear filters", release: "Release period",
-    start: "From", end: "To", rangeTo: "to", category: "Work category",
-    year: "Year", month: "Month", anyYear: "Any year", anyMonth: "All months", chooseYear: "Choose a year first",
-    previousYears: "Previous years", nextYears: "Next years",
-    dateHint: "Both endpoints included; year alone includes the whole year.",
+    kicker: "Filters", title: "Filter Works", clear: "Clear filters", release: "Release year",
+    category: "Work category",
     categoryHint: "Select one or more categories; all unselected shows every category.",
-    invalidRange: "The start month must be on or before the end month.",
-    empty: "No works match these filters. Adjust the dates or categories, or clear the filters.",
+    empty: "No works match these filters. Adjust the years or categories, or clear the filters.",
     emptyTimeline: "No releases match these filters.",
     count: (count, total) => `Showing ${count} of ${total} works`
   },
   zh: {
-    kicker: "筛选条件", title: "筛选工作", clear: "清空筛选", release: "发布年月范围",
-    start: "开始", end: "结束", rangeTo: "至", category: "工作类别",
-    year: "年份", month: "月份", anyYear: "年份不限", anyMonth: "月份不限", chooseYear: "请先选择年份",
-    previousYears: "上一组年份", nextYears: "下一组年份",
-    dateHint: "起止月份均包含在内；仅选年份时包含全年。",
+    kicker: "筛选条件", title: "筛选工作", clear: "清空筛选", release: "发布年份",
+    category: "工作类别",
     categoryHint: "支持多选；不选择标签时显示所有类别。",
-    invalidRange: "开始年月不能晚于结束年月。",
-    empty: "没有符合条件的工作。请调整年月或类别，或清空筛选。",
+    empty: "没有符合条件的工作。请调整年份或类别，或清空筛选。",
     emptyTimeline: "没有符合条件的发布记录。",
     count: (count, total) => `显示 ${count} / ${total} 项工作`
   }
 };
-const workFilters = { start: "", end: "", categories: new Set() };
-const dateParts = { start: { year: "", month: "" }, end: { year: "", month: "" } };
-const dateTriggers = document.querySelectorAll(".date-picker-trigger");
-const datePicker = document.getElementById("work-date-picker");
-let pickerTrigger = null;
-let firstPickerYear = 0;
-
-function updateDateRange() {
-  for (const bound of ["start", "end"]) {
-    const { year, month } = dateParts[bound];
-    workFilters[bound] = year ? `${year}-${month || (bound === "start" ? "01" : "12")}` : "";
-  }
-}
-
-function monthLabel(month, language) {
-  return new Intl.DateTimeFormat(language === "zh" ? "zh-CN" : "en", { month: "short" }).format(new Date(2000, Number(month) - 1, 1));
-}
-
-function renderDatePicker() {
-  const { bound, part } = pickerTrigger.dataset;
-  const copy = filterCopy[currentLanguage];
-  const isYear = part === "year";
-  datePicker.querySelector("#date-picker-title").textContent = isYear ? `${firstPickerYear} – ${firstPickerYear + 11}` : `${dateParts[bound].year} · ${copy.month}`;
-  datePicker.setAttribute("aria-label", `${copy[bound]} · ${copy[part]}`);
-  datePicker.querySelectorAll("[data-year-page]").forEach(button => {
-    button.hidden = !isYear;
-    button.setAttribute("aria-label", copy[button.dataset.yearPage === "-1" ? "previousYears" : "nextYears"]);
-    button.disabled = button.dataset.yearPage === "-1" && firstPickerYear <= 1;
-  });
-  datePicker.querySelector(".date-picker-options").innerHTML = Array.from({ length: 12 }, (_, index) => {
-    const value = isYear ? String(firstPickerYear + index) : String(index + 1).padStart(2, "0");
-    const label = isYear ? value : monthLabel(value, currentLanguage);
-    return `<button type="button" data-date-value="${value}" aria-pressed="${dateParts[bound][part] === value}">${label}</button>`;
-  }).join("");
-  datePicker.querySelector(".date-picker-unset").textContent = isYear ? copy.anyYear : copy.anyMonth;
-}
-
-function positionDatePicker() {
-  const rect = pickerTrigger.getBoundingClientRect();
-  const width = Math.min(296, window.innerWidth - 32);
-  datePicker.style.width = `${width}px`;
-  datePicker.style.left = `${Math.max(16, Math.min(rect.left, window.innerWidth - width - 16))}px`;
-  const height = datePicker.offsetHeight;
-  const top = rect.bottom + height + 8 <= window.innerHeight - 16 ? rect.bottom + 8 : rect.top - height - 8;
-  datePicker.style.top = `${Math.max(16, top)}px`;
-}
-
-function closeDatePicker() {
-  if (datePicker.matches(":popover-open")) datePicker.hidePopover();
-  dateTriggers.forEach(button => button.setAttribute("aria-expanded", "false"));
-}
-
-dateTriggers.forEach(button => {
-  button.addEventListener("click", () => {
-    const wasOpen = datePicker.matches(":popover-open") && pickerTrigger === button;
-    closeDatePicker();
-    if (wasOpen) return;
-    pickerTrigger = button;
-    firstPickerYear = Math.max(1, Math.floor(Number(dateParts[button.dataset.bound].year || new Date().getFullYear()) / 12) * 12);
-    renderDatePicker();
-    datePicker.showPopover();
-    positionDatePicker();
-    button.setAttribute("aria-expanded", "true");
-    const selected = datePicker.querySelector('[aria-pressed="true"]') || datePicker.querySelector("[data-date-value]");
-    selected.focus({ preventScroll: true });
-  });
-});
-datePicker.addEventListener("toggle", () => {
-  if (!datePicker.matches(":popover-open")) dateTriggers.forEach(button => button.setAttribute("aria-expanded", "false"));
-});
-datePicker.addEventListener("keydown", event => {
-  if (event.key === "Escape") {
-    event.preventDefault();
-    closeDatePicker();
-    pickerTrigger.focus({ preventScroll: true });
-  }
-});
-datePicker.addEventListener("click", event => {
-  const button = event.target.closest("button");
-  if (!button) return;
-  if (button.dataset.yearPage) {
-    firstPickerYear = Math.max(1, firstPickerYear + Number(button.dataset.yearPage) * 12);
-    renderDatePicker();
-    return;
-  }
-  const { bound, part } = pickerTrigger.dataset;
-  dateParts[bound][part] = button.dataset.dateValue || "";
-  if (part === "year" && !dateParts[bound].year) dateParts[bound].month = "";
-  updateDateRange();
-  closeDatePicker();
-  renderPublications(currentLanguage);
-  pickerTrigger.focus({ preventScroll: true });
-});
-window.addEventListener("resize", closeDatePicker);
-window.addEventListener("scroll", () => {
-  if (datePicker.matches(":popover-open")) positionDatePicker();
-}, true);
+const workFilters = { years: new Set(), categories: new Set() };
+const yearFilters = document.getElementById("work-year-filters");
 const categoryFilters = document.getElementById("work-category-filters");
 const clearFiltersButton = document.getElementById("clear-work-filters");
-const dateError = document.getElementById("work-date-error");
 const categoryOptions = new Map(publications.filter(publication => publication.category).map(publication => [publication.category, publication]));
 
 categoryOptions.forEach((publication, category) => {
@@ -232,20 +128,14 @@ categoryOptions.forEach((publication, category) => {
 });
 
 function hasWorkFilters() {
-  return Boolean(workFilters.start || workFilters.end || workFilters.categories.size);
-}
-
-function invalidWorkRange() {
-  return Boolean(workFilters.start && workFilters.end && workFilters.start > workFilters.end);
+  return Boolean(workFilters.years.size || workFilters.categories.size);
 }
 
 function filteredPublications() {
-  if (invalidWorkRange()) return [];
   if (!hasWorkFilters()) return publications;
   return publications.filter(publication => {
     if (!publication.releaseMonth) return false;
-    return (!workFilters.start || publication.releaseMonth >= workFilters.start)
-      && (!workFilters.end || publication.releaseMonth <= workFilters.end)
+    return (!workFilters.years.size || workFilters.years.has(publication.releaseMonth.slice(0, 4)))
       && (!workFilters.categories.size || workFilters.categories.has(publication.category));
   });
 }
@@ -259,26 +149,21 @@ function renderFilterState(language, count) {
     button.textContent = categoryOptions.get(button.dataset.category).tag[language];
     button.setAttribute("aria-pressed", String(workFilters.categories.has(button.dataset.category)));
   });
-  document.querySelectorAll("[data-date-bound]").forEach(group => {
-    group.setAttribute("aria-label", copy[group.dataset.dateBound]);
+  yearFilters.querySelectorAll("[data-year]").forEach(button => {
+    button.setAttribute("aria-pressed", String(workFilters.years.has(button.dataset.year)));
   });
-  const invalid = invalidWorkRange();
-  dateError.hidden = !invalid;
-  dateError.textContent = invalid ? copy.invalidRange : "";
-  dateTriggers.forEach(button => {
-    const { bound, part } = button.dataset;
-    const value = dateParts[bound][part];
-    button.textContent = value ? (part === "year" ? value : monthLabel(value, language)) : copy[part];
-    button.disabled = part === "month" && !dateParts[bound].year;
-    button.title = button.disabled ? copy.chooseYear : "";
-    button.setAttribute("aria-label", `${copy[bound]} · ${copy[part]}: ${value ? button.textContent : copy[part === "year" ? "anyYear" : "anyMonth"]}`);
-    button.setAttribute("aria-invalid", String(invalid));
-  });
-  closeDatePicker();
   clearFiltersButton.disabled = !hasWorkFilters();
   document.getElementById("work-filter-status").textContent = copy.count(count, publications.length);
 }
 
+yearFilters.addEventListener("click", event => {
+  const button = event.target.closest("[data-year]");
+  if (!button) return;
+  const year = button.dataset.year;
+  if (workFilters.years.has(year)) workFilters.years.delete(year);
+  else workFilters.years.add(year);
+  renderPublications(currentLanguage);
+});
 categoryFilters.addEventListener("click", event => {
   const button = event.target.closest("[data-category]");
   if (!button) return;
@@ -288,10 +173,8 @@ categoryFilters.addEventListener("click", event => {
   renderPublications(currentLanguage);
 });
 clearFiltersButton.addEventListener("click", () => {
-  workFilters.start = "";
-  workFilters.end = "";
+  workFilters.years.clear();
   workFilters.categories.clear();
-  for (const bound of ["start", "end"]) dateParts[bound] = { year: "", month: "" };
   renderPublications(currentLanguage);
 });
 

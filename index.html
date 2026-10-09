@@ -45,29 +45,16 @@
                 <button id="clear-work-filters" class="filter-clear" type="button" data-filter-i18n="clear" disabled>Clear filters</button>
               </div>
               <fieldset class="work-filter-group">
-                <legend data-filter-i18n="release">Release period</legend>
-                <div class="work-filter-dates">
-                  <div class="work-date-bound">
-                    <div class="work-date-controls" role="group" data-date-bound="start" aria-label="From">
-                      <button class="date-picker-trigger" type="button" data-bound="start" data-part="year" aria-haspopup="dialog" aria-controls="work-date-picker" aria-expanded="false" aria-describedby="work-date-hint work-date-error"></button>
-                      <button class="date-picker-trigger" type="button" data-bound="start" data-part="month" aria-haspopup="dialog" aria-controls="work-date-picker" aria-expanded="false" aria-describedby="work-date-hint work-date-error" disabled></button>
-                    </div>
-                  </div>
-                  <span class="work-date-separator" data-filter-i18n="rangeTo" aria-hidden="true">to</span>
-                  <div class="work-date-bound">
-                    <div class="work-date-controls" role="group" data-date-bound="end" aria-label="To">
-                      <button class="date-picker-trigger" type="button" data-bound="end" data-part="year" aria-haspopup="dialog" aria-controls="work-date-picker" aria-expanded="false" aria-describedby="work-date-hint work-date-error"></button>
-                      <button class="date-picker-trigger" type="button" data-bound="end" data-part="month" aria-haspopup="dialog" aria-controls="work-date-picker" aria-expanded="false" aria-describedby="work-date-hint work-date-error" disabled></button>
-                    </div>
-                  </div>
+                <legend data-filter-i18n="release">Release year</legend>
+                <div id="work-year-filters" class="work-filter-tags">
+                  <button class="tag tag--model" type="button" data-year="2026" aria-pressed="false">2026</button>
+                  <button class="tag tag--model" type="button" data-year="2025" aria-pressed="false">2025</button>
                 </div>
-                <p id="work-date-hint" class="filter-hint" data-filter-i18n="dateHint">Leave either end blank for no limit. Both endpoints are included.</p>
-                <p id="work-date-error" class="filter-error" role="alert" hidden></p>
               </fieldset>
               <fieldset class="work-filter-group">
                 <legend data-filter-i18n="category">Work category</legend>
                 <div id="work-category-filters" class="work-filter-tags"></div>
-                <p class="filter-hint" data-filter-i18n="categoryHint">Select one or more categories; leave all unselected to show every category.</p>
+                <!-- <p class="filter-hint" data-filter-i18n="categoryHint">Select one or more categories; leave all unselected to show every category.</p> -->
               </fieldset>
               <p id="work-filter-status" class="filter-status" role="status" aria-live="polite"></p>
             </section>
@@ -78,16 +65,6 @@
         </div>
       </section>
     </main>
-
-    <div id="work-date-picker" class="work-date-picker" popover="auto" role="dialog" aria-labelledby="date-picker-title">
-      <div class="date-picker-heading">
-        <button type="button" class="date-picker-page" data-year-page="-1">‹</button>
-        <span id="date-picker-title"></span>
-        <button type="button" class="date-picker-page" data-year-page="1">›</button>
-      </div>
-      <div class="date-picker-options"></div>
-      <button type="button" class="date-picker-unset"></button>
-    </div>
 
     <footer class="site-footer" data-amix-footer data-top-target="home-title"></footer>
     <script src="./assets/footer.js"></script>
