@@ -96,4 +96,30 @@ html[lang="en"] .pfarena-nav.detail-lang-en {
   }
 }
 
+/* 中文正文列表 */
+.detail-lang-zh .content-section ul li {
+  font-size: 18px;
+  line-height: 1.8;
+}
 
+.detail-lang-zh .content-section ul li + li {
+  margin-top: 12px;
+}
+
+.detail-lang-zh .content-section ul {
+  margin-bottom: 24px; /* Space below each list */
+}
+
+/* English article lists: match the Chinese article spacing. */
+.detail-lang-en .content-section ul li {
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+.detail-lang-en .content-section ul li + li {
+  margin-top: 12px;
+}
+
+.detail-lang-en .content-section ul {
+  margin-bottom: 24px;
+}
